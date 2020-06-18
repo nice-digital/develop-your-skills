@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import App from './App';
 
 describe('App', () => {
-    const skills = [{name: "skill1"}, {name: "skill2"}];
+    const skills = [{name: "skill1", levels: []}, {name: "skill2", levels: []}];
   it('should show the heading', () => {
     const { getByText } = render(<App skills={skills}/>);
     expect(getByText('Develop your skills')).toBeInTheDocument();
