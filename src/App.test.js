@@ -2,8 +2,17 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App', () => {
+    const skills = [{name: "skill1"}, {name: "skill2"}];
+  it('should show the heading', () => {
+    const { getByText } = render(<App skills={skills}/>);
+    expect(getByText('Develop your skills')).toBeInTheDocument();
+  });
+
+  it('should render the list of skills', () => {
+
+    const { getByText } = render(<App skills={skills}/>);
+    expect(getByText('skill1')).toBeInTheDocument();
+    expect(getByText('skill2')).toBeInTheDocument();
+  })
 });

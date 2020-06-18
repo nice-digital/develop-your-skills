@@ -1,5 +1,4 @@
 - name: Programming and build
-  desc: description
   levels:
     - name: Awareness
       examples:
