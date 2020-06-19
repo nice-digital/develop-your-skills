@@ -16,7 +16,8 @@ function App({skills}) {
 
 
 App.propTypes = { 
-  skills: PropTypes.arrayOf(SkillSelector.propTypes).isRequired
+  skills: PropTypes.arrayOf(SkillSelector.propTypes).isRequired,
+  index: PropTypes.number
 };
 
 export default App;

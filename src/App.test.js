@@ -9,7 +9,7 @@ describe('App', () => {
     expect(getByText('Develop your skills')).toBeInTheDocument();
   });
 
-  it('should render the list of skills', () => {
+  it('should render the list of skill selectors', () => {
 
     const { getByText } = render(<App skills={skills}/>);
     expect(getByText('skill1')).toBeInTheDocument();
