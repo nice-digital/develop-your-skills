@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, screen, waitForElement } from "@testing-library/react";
 import SkillSelector from "./SkillSelector";
 
 describe("Skill selector", () => {
@@ -18,35 +18,51 @@ describe("Skill selector", () => {
   };
   let container;
   
-  beforeEach(() => container = { container } = render(<SkillSelector skill={skill} />));
+  beforeEach(() => container = { container } = render(<SkillSelector skill={skill} index={0}/>));
 
   it('should render skill name', () => {
     expect(container.getByText(skill.name)).toBeInTheDocument();
   });
 
-  it('should render skill levels', () => {
-    expect(container.getByText(skill.levels[0].name)).toBeInTheDocument();
-    expect(container.getByText(skill.levels[1].name)).toBeInTheDocument();
-  });
+  it('should hide level selector by default',() => {
+    expect(screen.queryByText(skill.levels[0].name)).not.toBeInTheDocument();
+  })
 
-  
-  it('should have no level selected by default', () => {
-    const radios = container.getAllByRole('radio');
-    radios.forEach((radio)=>{
-      expect(radio).not.toBeChecked();
+  describe('When skill is expanded', () => {
+
+    beforeEach(async () => { 
+      fireEvent.click(screen.getByText(skill.name)); 
+      await screen.getByText(skill.levels[0].name);
     });
-  })
+    
+    it('should show skill levels', () => {
+      expect(screen.getByText(skill.levels[0].name)).toBeInTheDocument();
+      expect(screen.getByText(skill.levels[1].name)).toBeInTheDocument();
+    });
 
-  it('should have selectable levels in an exclusive group', () => {
-    const radio1 = container.getByLabelText('level1');
-    const radio2 = container.getByLabelText('level2');
+    it('should only be able to select one level in the group', () => {
+      const radio1 = screen.getByLabelText(skill.levels[0].name);
+      const radio2 = screen.getByLabelText(skill.levels[1].name);
+  
+      fireEvent.click(radio1);
+      expect(radio1).toBeChecked();
+      expect(radio2).not.toBeChecked();
+      fireEvent.click(radio2);
+      expect(radio1).not.toBeChecked();
+      expect(radio2).toBeChecked();
+    })
 
-    fireEvent.click(radio1);
-    expect(radio1).toBeChecked();
-    expect(radio2).not.toBeChecked();
-    fireEvent.click(radio2);
-    expect(radio1).not.toBeChecked();
-    expect(radio2).toBeChecked();
-  })
+      
+    it('should have no level selected by default', () => {
+      const radios = screen.getAllByRole('radio');
+      radios.forEach((radio)=>{
+        expect(radio).not.toBeChecked();
+      });
+    });
 
+    it('should collapse levels when skill name is clicked ', async () => {
+      fireEvent.click(screen.getByText(skill.name)); 
+      expect(screen.queryByText(skill.levels[0].name)).toBeNull();   
+    });
+  });
 });

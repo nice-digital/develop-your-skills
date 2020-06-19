@@ -1,18 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import LevelSelector from "./../LevelSelector/LevelSelector"
 
-class SkillSelector extends Component {
-  render() {
-    return (
-      <div key={this.props.index}>
-        <h4>{this.props.skill.name}</h4>
-        {this.props.skill.levels.map((level) => (
-          <LevelSelector level={level} skillName={this.props.skill.name}/>
-        ))}
-      </div>
-    );
-  }
+const SkillSelector = (props) => {
+
+  const [showLevels, setShowLevels] = React.useState(false)
+  const onClick = () => setShowLevels(!showLevels)
+
+  return (
+    <div key={props.index}>
+      <button
+          type="button"
+          onClick={onClick}>
+        {props.skill.name}
+      </button>
+  
+      { showLevels ? 
+        <div>
+          {props.skill.levels.map((level) => (
+            <LevelSelector level={level} skillName={props.skill.name}/>
+          ))}
+        </div>
+        : null}
+    </div>
+  );
 }
 
 SkillSelector.propTypes = { 
