@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import LevelSelector from "./LevelSelector";
 
 describe("LevelSelector ", () => {
@@ -12,7 +12,7 @@ describe("LevelSelector ", () => {
   };
   let getByText;
 
-  beforeEach(() => getByText = render(<LevelSelector level={level} skill={{name:""}}/>).getByText);
+  beforeEach(() => getByText = render(<LevelSelector level={level} skillName={""}/>).getByText);
 
   it('should render skill levels with examples', () => {
     expect(getByText(level.name)).toBeInTheDocument();

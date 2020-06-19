@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, screen, waitForElement } from "@testing-library/react";
+import { render, fireEvent, screen } from "@testing-library/react";
 import SkillSelector from "./SkillSelector";
 
 describe("Skill selector", () => {
@@ -16,12 +16,11 @@ describe("Skill selector", () => {
       }
     ],
   };
-  let container;
   
-  beforeEach(() => container = { container } = render(<SkillSelector skill={skill} index={0}/>));
+  beforeEach(() => render(<SkillSelector skill={skill} index={0}/>));
 
   it('should render skill name', () => {
-    expect(container.getByText(skill.name)).toBeInTheDocument();
+    expect(screen.getByText(skill.name)).toBeInTheDocument();
   });
 
   it('should hide level selector by default',() => {

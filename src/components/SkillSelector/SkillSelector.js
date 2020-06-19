@@ -17,8 +17,8 @@ const SkillSelector = (props) => {
   
       { showLevels ? 
         <div>
-          {props.skill.levels.map((level) => (
-            <LevelSelector level={level} skillName={props.skill.name}/>
+          {props.skill.levels.map((level, index) => (
+            <LevelSelector level={level} skillName={props.skill.name} index={index}/>
           ))}
         </div>
         : null}

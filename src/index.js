@@ -3,25 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { importSkills } from './importer/importer';
+import { getSkills, getRoles, getLevels } from './services/getData';
 
-const dataUrl = 'data/example-skills.yml';
+const skillsUrl = 'data/example-skills.yml';
+const rolesUrl = 'data/example-roles.json';
+const levelsUrl = 'data/example-levels.json';
 
-fetch(dataUrl)
-  .then((r) => r.text())
-  .then(yml  => {
-    const skills = importSkills(yml);
-    ReactDOM.render(
-      <React.StrictMode>
-        <App skills={skills}/>
-      </React.StrictMode>,
-      document.getElementById('root')
-    );
-  }) 
-
-// const yml = fs.readFileSync('example-skills.yml');
+const skills = getSkills(skillsUrl);
+const roles = getRoles(rolesUrl);
+// const levels = getLevels(levelsUrl);
 
 
+ReactDOM.render(
+  <React.StrictMode>
+    <App skills={skills} roles={roles}/>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
 
 // If you want your app to work offline and load faster, you can change
