@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 const TargetRole = (props) => {
 
+  const roles = Array.from(props.roles);
+
   return (
     <section >
       <div>
@@ -10,7 +12,7 @@ const TargetRole = (props) => {
           <option key="unset" value="unset">
             Select role
           </option>
-          {props.roles.map((role, idx) => (
+          {roles.map((role, idx) => (
             <option key={idx} value={idx}>
               {role.name}
             </option>

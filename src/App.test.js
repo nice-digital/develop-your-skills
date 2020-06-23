@@ -22,4 +22,7 @@ describe('Develop your skills app', () => {
   it('should show the target role selector', () => {
     expect(screen.getByText('Select role')).toBeInTheDocument();
   });
+  // it('should show the skill report', () => {
+  //   expect(screen.getByText('you need to focus on developing skill in the following areas')).toBeInTheDocument();
+  // });
 });

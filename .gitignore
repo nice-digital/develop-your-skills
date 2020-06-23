@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+# Temporary skills data
+/src/data
+
 # production
 /build
 

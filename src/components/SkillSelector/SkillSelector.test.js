@@ -17,7 +17,7 @@ describe("Skill selector", () => {
     ],
   };
   
-  beforeEach(() => render(<SkillSelector skill={skill} index={0}/>));
+  beforeEach(() => render(<SkillSelector skill={skill}/>));
 
   it('should render skill name', () => {
     expect(screen.getByText(skill.name)).toBeInTheDocument();

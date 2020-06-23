@@ -3,16 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { getSkills, getRoles, getLevels } from './services/getData';
-
-const skillsUrl = 'data/example-skills.yml';
-const rolesUrl = 'data/example-roles.json';
-const levelsUrl = 'data/example-levels.json';
-
-const skills = getSkills(skillsUrl);
-const roles = getRoles(rolesUrl);
-// const levels = getLevels(levelsUrl);
-
+import skills from './data/skills.json';
+import roles from './data/roles.json';
 
 ReactDOM.render(
   <React.StrictMode>

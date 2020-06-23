@@ -1,0 +1,87 @@
+@import "~@nice-digital/nds-core/scss/core";
+
+.root {
+    margin: rem(0 0 $spacing-medium 0);
+    position: relative;
+    border: 2px solid grey;
+}
+
+.info {
+    background: $colour-nice-grey-3;
+    &[aria-hidden='true'] {
+        display: none;
+    }
+    padding: 5px;
+}
+
+.button {
+    @include h4;
+    border: 0;
+    display: inline-block;
+    margin: 0;
+    max-width: 100%;
+    padding: rem($spacing-medium);
+    text-align: left;
+    position: relative;
+
+    &:focus {
+        @include default-focus-style;
+    }
+    &:hover {
+        @include default-focus-style;
+    }
+}
+
+@mixin general-indicator-styles {
+    display: inline-block;
+    margin: 0px 2px 0px 2px;
+}
+
+.deficitindicator {
+    @include general-indicator-styles;
+    color: red;
+}
+
+.positiveindicator {
+    @include general-indicator-styles;
+    color: green;
+}
+
+.rowcontainer {
+    height: 100%;
+    position: relative;
+    background-color: rgb(221, 221, 221);
+    &:focus {
+        @include default-focus-style;
+    }
+    &:hover {
+        @include default-focus-style;
+    }
+}
+
+.indicatorcontainer {
+    display: inline-block;
+    position: relative;
+    width: 7%;
+    text-align: center;
+}
+
+
+.chevroncontainer {
+    display: inline-block;
+    width: 3%;
+    height: 100%;
+    position: relative;
+}
+
+.buttoncontainer {
+    display: inline-block;
+    width: 90%;
+    height: 100%;
+    position: relative;
+}
+
+.pathArrow {
+    padding: 5px;
+}
+
