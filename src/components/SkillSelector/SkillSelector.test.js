@@ -27,6 +27,7 @@ describe("Skill selector", () => {
     expect(screen.queryByText(skill.levels[0].name)).not.toBeInTheDocument();
   })
 
+
   describe('When skill is expanded', () => {
 
     beforeEach(async () => { 
@@ -59,9 +60,22 @@ describe("Skill selector", () => {
       });
     });
 
-    it('should collapse levels when skill name is clicked ', async () => {
+    it('should collapse levels when skill name is clicked ', () => {
       fireEvent.click(screen.getByText(skill.name)); 
       expect(screen.queryByText(skill.levels[0].name)).toBeNull();   
     });
+
   });
+
+  describe('When level is selected and levels are collapsed', () => {
+    it('should show selected level text ', () => {  
+      const levelName = skill.levels[0].name    
+      fireEvent.click(screen.getByText(skill.name)); //expand
+      fireEvent.click(screen.getByText(levelName)); //click level
+      fireEvent.click(screen.getByText(skill.name)); //collapse
+
+      const selectedLevel = 'Selected: '+levelName;
+      expect(screen.queryByText(selectedLevel)).toBeInTheDocument();   
+    });
+  })
 });

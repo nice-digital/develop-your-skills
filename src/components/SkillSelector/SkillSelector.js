@@ -5,21 +5,26 @@ import LevelSelector from "./../LevelSelector/LevelSelector"
 const SkillSelector = ({skill}) => {
 
   const [showLevels, setShowLevels] = React.useState(false)
-  const onClick = () => setShowLevels(!showLevels)
+  const toggleShowLevels = () => setShowLevels(!showLevels)
+
+  const [selectedLevel, setSelectedLevel] = React.useState(-1);
 
   return (
     <div>
       <button
           type="button"
-          onClick={onClick}>
+          onClick={toggleShowLevels}>
         {skill.name}
+        {selectedLevel > -1 && !showLevels && (
+          <span className="styles.buttonSub">Selected: {skill.levels[selectedLevel].name}</span>
+        )}
       </button>
   
       { showLevels ? 
         <ul>
           {skill.levels.map((level, index) => (
             <li key={index}>
-              <LevelSelector level={level} skillName={skill.name}/>
+              <LevelSelector level={level} levelIndex={index} skillName={skill.name} setSelectedLevel={setSelectedLevel}/>
             </li>
           ))}
         </ul>

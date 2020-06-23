@@ -5,11 +5,11 @@ let toDashed = (str) => {
   return str.replace(/\s+/g, "-").toLowerCase();
 }
 
-const LevelSelector = ({level, skillName}) => {
+const LevelSelector = ({level, levelIndex, skillName, setSelectedLevel}) => {
   return (
     <div>
       <div>
-        <input type="radio" id={toDashed(level.name)} name={skillName} value={level.name}></input>
+        <input type="radio" id={toDashed(level.name)} name={skillName} value={levelIndex} onChange={e => setSelectedLevel(e.target.value)}></input>
         <label htmlFor={toDashed(level.name)}>{level.name}</label>
       </div>
       <ul>
@@ -25,7 +25,8 @@ LevelSelector.propTypes = {
   level: PropTypes.shape({
     name: PropTypes.string,
     examples: PropTypes.arrayOf(PropTypes.string)
-  })
+  }),
+  setSelectedLevel: PropTypes.func.isRequired
 };
 
 export default LevelSelector;

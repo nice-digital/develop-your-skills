@@ -12,7 +12,7 @@ describe("LevelSelector ", () => {
   };
   let getByText;
 
-  beforeEach(() => getByText = render(<LevelSelector level={level} skillName={""}/>).getByText);
+  beforeEach(() => getByText = render(<LevelSelector level={level} levelIndex={0} skillName={""} setSelectedLevel={() => {}}/>).getByText);
 
   it('should render skill levels with examples', () => {
     expect(getByText(level.name)).toBeInTheDocument();
