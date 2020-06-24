@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 import SkillSelector from './components/SkillSelector/SkillSelector';
 import TargetRole from './components/TargetRole/TargetRole';
 import SkillsReport from './components/SkillsReport/SkillsReport';
-import './App.css';
+import styles from './App.module.scss';
 
 const App = ({skills, roles}) => {
   return (
-    <div className="App">
+    <div className={styles.app}>
       <h1>Develop your skills</h1>
       <h2>1. Select your skill levels</h2>
-      <ul> 
+      <section> 
         {skills.map((skill, index) => (
-          <li key={index}>
+          <section key={index}>
             <SkillSelector skill={skill}/>
-          </li>
+          </section>
         ))}
-      </ul>
+      </section>
      
       <h2>2. Select your target role</h2>
       <TargetRole roles={roles} />

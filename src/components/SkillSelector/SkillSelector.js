@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import LevelSelector from "./../LevelSelector/LevelSelector"
+import LevelSelector from "./../LevelSelector/LevelSelector";
+import styles from "./SkillSelector.module.scss";
 
 const SkillSelector = ({skill}) => {
 
@@ -9,27 +10,49 @@ const SkillSelector = ({skill}) => {
 
   const [selectedLevel, setSelectedLevel] = React.useState(-1);
 
+  let getUpDownState = () => {
+    return showLevels ? "up" : "down";
+  }
+
+  let isSelected = (index) => {
+    return index==selectedLevel;
+  }
+
   return (
-    <div>
-      <button
-          type="button"
-          onClick={toggleShowLevels}>
-        {skill.name}
-        {selectedLevel > -1 && !showLevels && (
-          <span className="styles.buttonSub">Selected: {skill.levels[selectedLevel].name}</span>
-        )}
-      </button>
-  
-      { showLevels ? 
-        <ul>
-          {skill.levels.map((level, index) => (
-            <li key={index}>
-              <LevelSelector level={level} levelIndex={index} skillName={skill.name} setSelectedLevel={setSelectedLevel}/>
-            </li>
-          ))}
-        </ul>
-        : null}
-    </div>
+    <section 
+      className={styles.root}>
+      <div className={styles.rowcontainer}>
+        <div className={styles.buttoncontainer}>
+          <button
+              type="button"
+              onClick={toggleShowLevels}
+              className={styles.button}>
+            {skill.name}
+            {selectedLevel > -1 && !showLevels && (
+              <span className={styles.buttonSub}>Selected: {skill.levels[selectedLevel].name}</span>
+            )}
+          </button>
+        </div>
+        <div className={styles.chevroncontainer}>
+          <div className={`fa fa-chevron-${getUpDownState()}`}></div>
+        </div>
+    
+        { showLevels ? 
+          <div className={styles.info}>
+            {skill.levels.map((level, index) => (
+              <section key={index}>
+                <LevelSelector
+                  level={level}
+                  levelIndex={index}
+                  skillName={skill.name}
+                  setSelectedLevel={setSelectedLevel}
+                  isSelected={isSelected(index)}/>
+              </section>
+            ))}
+          </div>
+          : null}
+      </div>
+    </section>
   );
 }
 

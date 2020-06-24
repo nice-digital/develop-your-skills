@@ -52,6 +52,15 @@ describe("Skill selector", () => {
       expect(radio2).toBeChecked();
     })
 
+    
+    it('should retain level selection on expand/collapse', () => {
+      const radio = screen.getByLabelText(skill.levels[1].name);
+      fireEvent.click(radio);
+      fireEvent.click(screen.getByText(skill.name)); 
+      fireEvent.click(screen.getByText(skill.name)); 
+      expect(radio).toBeChecked();
+    })
+
       
     it('should have no level selected by default', () => {
       const radios = screen.getAllByRole('radio');

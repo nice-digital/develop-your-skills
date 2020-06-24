@@ -1,15 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-let toDashed = (str) => {
-  return str.replace(/\s+/g, "-").toLowerCase();
-}
 
-const LevelSelector = ({level, levelIndex, skillName, setSelectedLevel}) => {
+
+const LevelSelector = ({level, levelIndex, skillName, setSelectedLevel, isSelected}) => {
+  let toDashed = (str) => {
+    return str.replace(/\s+/g, "-").toLowerCase();
+  }
+
   return (
     <div>
       <div>
-        <input type="radio" id={toDashed(level.name)} name={skillName} value={levelIndex} onChange={e => setSelectedLevel(e.target.value)}></input>
+        <input 
+          type="radio"
+          id={toDashed(level.name)}
+          name={skillName}
+          value={levelIndex}
+          onChange={e => setSelectedLevel(e.target.value)}
+          checked={isSelected}></input>
         <label htmlFor={toDashed(level.name)}>{level.name}</label>
       </div>
       <ul>
@@ -26,7 +34,8 @@ LevelSelector.propTypes = {
     name: PropTypes.string,
     examples: PropTypes.arrayOf(PropTypes.string)
   }),
-  setSelectedLevel: PropTypes.func.isRequired
+  setSelectedLevel: PropTypes.func.isRequired,
+  isSelected: PropTypes.bool.isRequired
 };
 
 export default LevelSelector;

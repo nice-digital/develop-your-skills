@@ -1,0 +1,60 @@
+@import "~@nice-digital/nds-core/scss/core";
+
+$spacing-medium: 5;
+
+.root {
+    margin: rem(0 0 $spacing-medium 0);
+    height: 100%;
+}
+
+.chevroncontainer {
+    display: inline-block;
+    width: 3%;
+    height: 100%;
+    position: relative;
+}
+
+.buttoncontainer {
+    display: inline-block;
+    width: 97%;
+    height: 100%;
+    position: relative;
+}
+.rowcontainer {
+    height: 100%;
+    position: relative;
+    background-color: rgb(221, 221, 221);
+    &:focus {
+        @include default-focus-style;
+    }
+    &:hover {
+        @include default-focus-style;
+    }
+}
+
+.button {
+    @include h4;
+    border: 0;
+    display: block;
+    margin: 0;
+    max-width: 100%;
+    padding: rem($spacing-medium);
+    text-align: left;
+    width: 100%;
+    height: 100%;
+ 
+}
+
+.buttonSub {
+    display: block;
+    font-weight: normal;
+}
+
+.info {
+    margin: 1em 1em 1em 1em;
+    &[aria-hidden='true'] {
+        display: none;
+    }
+}
+
+
