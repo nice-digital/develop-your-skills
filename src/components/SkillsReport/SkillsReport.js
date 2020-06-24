@@ -2,29 +2,28 @@ import React from "react";
 import PropTypes from "prop-types";
 import SkillToDevelop from "./../SkillToDevelop/SkillToDevelop";
 
-const SkillsReport = (props) => {
+export const skillsReportTestId = 'skill-report';
+
+const SkillsReport = ({skillsToDevelop, targetRole}) => {
 
   return (
-    <section>
-      <p>To be a <span><b>{props.targetRole}</b></span>, you need to focus on developing skill in the following areas:</p> 
-      <ul>
-        {props.skillsToDevelop.map((skill, index) => (
-          <li key={index}>
+    <section data-testid={skillsReportTestId}>
+      <p>To be a <span><b>{targetRole}</b></span>, you need to focus on developing skill in the following areas:</p> 
+      <div>
+        {skillsToDevelop.map((skill, index) => (
+          <div key={index}>
             <SkillToDevelop skill={skill}/>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </section>    
   );
 }
 
 SkillsReport.propTypes = { 
-  skillsToDevelop: PropTypes.arrayOf( 
-    PropTypes.shape({
-      name: PropTypes.string.isRequired
-    })
-  ).isRequired,
+  skillsToDevelop: PropTypes.arrayOf(
+    PropTypes.shape(SkillToDevelop.propTypes)).isRequired,
   targetRole: PropTypes.string
  };
 
-export default SkillsReport;
+ export default SkillsReport;

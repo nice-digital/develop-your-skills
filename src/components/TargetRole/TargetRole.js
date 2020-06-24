@@ -1,14 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const TargetRole = (props) => {
-
-  const roles = Array.from(props.roles);
+const TargetRole = ({roles, setRoleSelected}) => {
 
   return (
     <section >
       <div>
-        <select>
+        <select data-testid="role-select"  onChange={e => setRoleSelected(parseInt(e.target.value))}>
           <option key="unset" value="unset">
             Select role
           </option>
@@ -29,7 +27,8 @@ TargetRole.propTypes = {
         name: PropTypes.string.isRequired,
         id: PropTypes.number.isRequired
       }).isRequired
-    ).isRequired
+    ).isRequired,
+    setRoleSelected: PropTypes.func.isRequired
  };
 
 export default TargetRole;

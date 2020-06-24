@@ -10,6 +10,8 @@ const App = ({skills, roles}) => {
   const [currentSkillLevels, setCurrentSkillLevels] = 
     React.useState(skills.map((_) => UNSELECTED));
 
+  const [targetRole, setTargetRole] = React.useState(UNSELECTED);
+
   let setSkillLevel = (skillIndex) => {
     return (levelIndex) => {
       let newSkills = currentSkillLevels;
@@ -22,15 +24,55 @@ const App = ({skills, roles}) => {
     return currentSkillLevels[skillIndex];
   }
 
+
+
+  let getSkillsToDevelop = () => {
+
+  //   skill: PropTypes.shape({
+  //     name: PropTypes.string.isRequired,
+  //     levels: PropTypes.shape({
+  //       current: PropTypes.shape({
+  //         name: PropTypes.string.isRequired
+  //       }).isRequired,
+  //       deficit: PropTypes.arrayOf(
+  //         PropTypes.shape({
+  //           name: PropTypes.string.isRequired,
+  //           examples: PropTypes.arrayOf(PropTypes.string).isRequired
+  //         })
+  //       )
+  //     }).isRequired
+  // }).isRequired
+    let skillsToDevelop =  
+      currentSkillLevels.map((_,index) => (
+        {
+          name: skills[index].name
+        }));    
+    return skillsToDevelop;
+  };
+
   let shouldShowTargetRole = () => {
     return !currentSkillLevels.includes(UNSELECTED);
   }
 
-  let showTargetRole = () => {
+  let showTargetRoleSection = () => {
     return (
       <section>
         <h2>2. Select your target role</h2>
-        <TargetRole roles={roles} />
+        <TargetRole roles={roles} setRoleSelected={setTargetRole} />          
+      </section>     
+    );
+  };
+
+  let shouldShowSkillReport = () => {
+    return targetRole > UNSELECTED;
+  }
+
+
+  let showSkillReportSection = () => {
+    return (
+      <section>
+        <h2>3. Develop your skills</h2>
+        <SkillsReport skillsToDevelop={getSkillsToDevelop()} targetRole={roles[targetRole].name}/> :
       </section>
     );
   };
@@ -49,9 +91,8 @@ const App = ({skills, roles}) => {
           </section>
         ))}
       </section>
-      {shouldShowTargetRole() && showTargetRole()}      
-      <h2>3. Develop your skills</h2>
-      <SkillsReport skillsToDevelop={[]} targetRole={""}/>
+      {shouldShowTargetRole() && showTargetRoleSection()}      
+      {shouldShowSkillReport() && showSkillReportSection()}      
     </div>
   );
 }

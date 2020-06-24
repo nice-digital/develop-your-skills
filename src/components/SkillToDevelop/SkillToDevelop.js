@@ -1,11 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-//import Styles from "./SkillsReport.module.scss";
+import styles from "./SkillToDevelop.module.scss";
 
 const SkillToDevelop = ({skill}) => {
 
   const [showDetails, setShowDetails] = React.useState(false)
   const onClick = () => setShowDetails(!showDetails)
+
+  let getUpDownState = () => {
+    return showDetails ? "up" : "down";
+  }
 
   function getSkillLevelDeficitPlan(){
     return (
@@ -31,26 +35,27 @@ const SkillToDevelop = ({skill}) => {
 
   return (
 
-    <div>
-      <div className="Styles.indicatorcontainer">
+    <div 
+      className={styles.rowcontainer}
+      onClick={onClick}>
+      <div className={styles.indicatorcontainer}>
         {/* {!this.isSkillLevelInDeficit() && this.createPositiveIndicator()}
         {this.isSkillLevelInDeficit() && this.createDeficitIndicators()} */}
       </div>
-      <div className="Styles.buttoncontainer">
-        <button
-            type="button"
-            onClick={onClick}>
+      <div className={styles.buttoncontainer}>
+        <button type="button" className={styles.button}>
           {skill.name}
         </button>
       </div>
 
-      {/* <div className={Styles.chevroncontainer}>
-        <div className={`fa fa-chevron-${this.getUpDownState()}`}></div>
-      </div> */}
+      <div className={styles.chevroncontainer}>
+        <div className={`fa fa-chevron-${getUpDownState()}`}></div>
+      </div>
 
       { showDetails ? 
         <div>
-            {getSkillLevelDeficitPlan()}
+            <p>Details going here</p>
+            {/* {getSkillLevelDeficitPlan()} */}
             {/* {!this.isSkillLevelInDeficit() && <p>Well done, your skills are already at a satisfactory level!</p>}  
             {this.isSkillLevelInDeficit() && this.getSkillDeficitPlanSummary()}   */}
         </div>
@@ -61,18 +66,18 @@ const SkillToDevelop = ({skill}) => {
 
 SkillToDevelop.propTypes = { 
     skill: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        levels: PropTypes.shape({
-          current: PropTypes.shape({
-            name: PropTypes.string.isRequired
-          }).isRequired,
-          deficit: PropTypes.arrayOf(
-            PropTypes.shape({
-              name: PropTypes.string.isRequired,
-              examples: PropTypes.arrayOf(PropTypes.string).isRequired
-            })
-          )
-        }).isRequired
+        name: PropTypes.string.isRequired
+        // levels: PropTypes.shape({
+        //   current: PropTypes.shape({
+        //     name: PropTypes.string.isRequired
+        //   }).isRequired,
+        //   deficit: PropTypes.arrayOf(
+        //     PropTypes.shape({
+        //       name: PropTypes.string.isRequired,
+        //       examples: PropTypes.arrayOf(PropTypes.string).isRequired
+        //     })
+        //   )
+        // }).isRequired
     }).isRequired
  }
 

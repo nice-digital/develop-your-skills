@@ -13,8 +13,9 @@ describe("Skill selector", () => {
       "id": 1
     }
   ];
+  let setRoleSelected = (index) => {};
   
-  beforeEach(() => render(<TargetRole roles={roles}/>));
+  beforeEach(() => render(<TargetRole roles={roles} setRoleSelected={setRoleSelected}/>));
 
   it('should show list of role names', () => {
     expect(screen.getByText('Role 1 Name')).toBeInTheDocument();
