@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
-import SkillSelector from "./SkillSelector";
+import { SkillSelector, UNSELECTED } from "./SkillSelector";
 
 describe("Skill selector", () => {
   const skill = {
@@ -16,8 +16,26 @@ describe("Skill selector", () => {
       }
     ],
   };
-  
-  beforeEach(() => render(<SkillSelector skill={skill}/>));
+  let selectedLevel = UNSELECTED;
+  let setLevel = (index) => selectedLevel=index;
+
+  let rerender;
+  let construct = () => {
+    return <SkillSelector
+            skill={skill}
+            selectedLevel={selectedLevel}
+            setLevelSelected={setLevel}/>
+  }
+
+  beforeEach(() => {
+    selectedLevel = UNSELECTED;
+    rerender = render(construct()).rerender;
+  });
+
+  let clickLevelRerender = (level) => {
+    fireEvent.click(level);
+    rerender(construct());
+  }
 
   it('should render skill name', () => {
     expect(screen.getByText(skill.name)).toBeInTheDocument();
@@ -41,21 +59,27 @@ describe("Skill selector", () => {
     });
 
     it('should only be able to select one level in the group', () => {
-      const radio1 = screen.getByLabelText(skill.levels[0].name);
-      const radio2 = screen.getByLabelText(skill.levels[1].name);
-  
-      fireEvent.click(radio1);
-      expect(radio1).toBeChecked();
-      expect(radio2).not.toBeChecked();
-      fireEvent.click(radio2);
-      expect(radio1).not.toBeChecked();
-      expect(radio2).toBeChecked();
+      let level1 = screen.getByLabelText(skill.levels[0].name);
+      let level2;
+
+      clickLevelRerender(level1);
+      level1 = screen.getByLabelText(skill.levels[0].name);
+      level2 = screen.getByLabelText(skill.levels[1].name);
+
+      expect(level1).toBeChecked();
+      expect(level2).not.toBeChecked();
+
+      clickLevelRerender(level2);
+      level1 = screen.getByLabelText(skill.levels[0].name);
+      level2 = screen.getByLabelText(skill.levels[1].name);
+      expect(level1).not.toBeChecked();
+      expect(level2).toBeChecked();
     })
 
     
     it('should retain level selection on expand/collapse', () => {
       const radio = screen.getByLabelText(skill.levels[1].name);
-      fireEvent.click(radio);
+      clickLevelRerender(radio);
       fireEvent.click(screen.getByText(skill.name)); 
       fireEvent.click(screen.getByText(skill.name)); 
       expect(radio).toBeChecked();
@@ -78,9 +102,10 @@ describe("Skill selector", () => {
 
   describe('When level is selected and levels are collapsed', () => {
     it('should show selected level text ', () => {  
-      const levelName = skill.levels[0].name    
+      const levelName = skill.levels[0].name
       fireEvent.click(screen.getByText(skill.name)); //expand
-      fireEvent.click(screen.getByText(levelName)); //click level
+      const radio = screen.getByLabelText(levelName);
+      clickLevelRerender(radio);
       fireEvent.click(screen.getByText(skill.name)); //collapse
 
       const selectedLevel = 'Selected: '+levelName;

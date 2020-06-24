@@ -3,19 +3,19 @@ import PropTypes from "prop-types";
 import LevelSelector from "./../LevelSelector/LevelSelector";
 import styles from "./SkillSelector.module.scss";
 
-const SkillSelector = ({skill}) => {
+export const UNSELECTED = -1;
+
+export const SkillSelector = ({skill, selectedLevel, setLevelSelected}) => {
 
   const [showLevels, setShowLevels] = React.useState(false)
   const toggleShowLevels = () => setShowLevels(!showLevels)
-
-  const [selectedLevel, setSelectedLevel] = React.useState(-1);
 
   let getUpDownState = () => {
     return showLevels ? "up" : "down";
   }
 
   let isSelected = (index) => {
-    return index==selectedLevel;
+    return index == selectedLevel;
   }
 
   return (
@@ -45,7 +45,7 @@ const SkillSelector = ({skill}) => {
                   level={level}
                   levelIndex={index}
                   skillName={skill.name}
-                  setSelectedLevel={setSelectedLevel}
+                  setLevelSelected={setLevelSelected}
                   isSelected={isSelected(index)}/>
               </section>
             ))}
@@ -61,7 +61,7 @@ SkillSelector.propTypes = {
         name: PropTypes.string.isRequired,
         levels: PropTypes.arrayOf(
           PropTypes.shape(LevelSelector.propTypes)).isRequired
-    }).isRequired
+    }).isRequired,
+    setLevelSelected: PropTypes.func.isRequired,
+    selectedLevel: PropTypes.number.isRequired
  };
-
-export default SkillSelector;

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 
 
-const LevelSelector = ({level, levelIndex, skillName, setSelectedLevel, isSelected}) => {
+const LevelSelector = ({level, levelIndex, skillName, setLevelSelected, isSelected}) => {
   let toDashed = (str) => {
     return str.replace(/\s+/g, "-").toLowerCase();
   }
@@ -16,7 +16,7 @@ const LevelSelector = ({level, levelIndex, skillName, setSelectedLevel, isSelect
           id={toDashed(level.name)}
           name={skillName}
           value={levelIndex}
-          onChange={e => setSelectedLevel(e.target.value)}
+          onChange={e => setLevelSelected(parseInt(e.target.value))}
           checked={isSelected}></input>
         <label htmlFor={toDashed(level.name)}>{level.name}</label>
       </div>
@@ -34,7 +34,7 @@ LevelSelector.propTypes = {
     name: PropTypes.string,
     examples: PropTypes.arrayOf(PropTypes.string)
   }),
-  setSelectedLevel: PropTypes.func.isRequired,
+  setLevelSelected: PropTypes.func.isRequired,
   isSelected: PropTypes.bool.isRequired
 };
 
