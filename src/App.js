@@ -9,11 +9,12 @@ import styles from './App.module.scss';
 
 const App = ({skills, roles, levels}) => {
   const targetRoleKey = 'target';
+  const nameKey = 'name';
 
   const [currentSkillLevels, setCurrentSkillLevels] = 
     React.useState(skills.map((skill) => getQueryStringValue(skill.id) || UNSELECTED));
-
-  const [targetRole, setTargetRole] = React.useState( getQueryStringValue(targetRoleKey) ||UNSELECTED);
+  const [targetRole, setTargetRole] = React.useState( getQueryStringValue(targetRoleKey) || UNSELECTED);
+  const [name, setName] = React.useState( getQueryStringValue(nameKey) || '');
 
   let setSkillLevel = (skillIndex) => {
     return (levelIndex) => {
@@ -27,6 +28,11 @@ const App = ({skills, roles, levels}) => {
   let setTargetRoleCallback = (role) => {
     setTargetRole(role);
     setQueryStringValue(targetRoleKey, role);
+  }
+
+  let setNameCallback = (newName) => {
+    setName(newName);
+    setQueryStringValue(nameKey, newName);
   }
 
   let getSkillLevel = (skillIndex) => {
@@ -45,8 +51,8 @@ const App = ({skills, roles, levels}) => {
   let showTargetRoleSection = () => {
     return (
       <section>
-        <h2>2. Select your target role</h2>
-        <TargetRole roles={roles} setRoleSelected={setTargetRoleCallback} />          
+        <h2>3. Select your target role</h2>
+        <TargetRole roles={roles} setRoleSelected={setTargetRoleCallback} targetRole={targetRole} />          
       </section>     
     );
   };
@@ -59,7 +65,7 @@ const App = ({skills, roles, levels}) => {
   let showSkillReportSection = () => {
     return (
       <section>
-        <h2>3. Develop your skills</h2>
+        <h2>4. Develop your skills</h2>
         <SkillsReport skillsToDevelop={getSkillsToDevelop()} targetRole={roles[targetRole].name}/>
       </section>
     );
@@ -68,7 +74,12 @@ const App = ({skills, roles, levels}) => {
   return (
     <div className={styles.app}>
       <h1>Develop your skills</h1>
-      <h2>1. Select your skill levels</h2>
+      <h2>1. Enter your name</h2>
+      <div>
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname" onChange={e => setNameCallback(e.target.value)} value={name}></input>
+      </div>
+      <h2>2. Select your skill levels</h2>
       <section> 
         {skills.map((skill, index) => (
           <section key={index}>
