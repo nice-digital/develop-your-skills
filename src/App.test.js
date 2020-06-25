@@ -27,11 +27,21 @@ describe('Develop your skills app', () => {
   const roles = [
     {
       "name": "Role 1 Name",
-      "id": 0
+      skillLevels: [
+        { skillId: 0, levelId: 0 },
+        { skillId: 1, levelId: 0 }
+      ]
     }
   ];
+  const levels = [
+    { id: 0, name: "Awareness" },
+    { id: 1, name: "Working" },
+    { id: 2, name: "Practitioner" },
+    { id: 3, name: "Expert" },
+  ];
+
   let rerender;
-  let construct = () => <App skills={skills} roles={roles} />;
+  let construct = () => <App skills={skills} roles={roles} levels={levels} />;
 
   beforeEach(() => {
     rerender = render(construct()).rerender;

@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { SkillSelector, UNSELECTED } from './components/SkillSelector/SkillSelector';
 import TargetRole from './components/TargetRole/TargetRole';
 import SkillsReport from './components/SkillsReport/SkillsReport';
+import { DeficitCalculator } from './services/DeficitCalculator';
 import styles from './App.module.scss';
 
-const App = ({skills, roles}) => {
+const App = ({skills, roles, levels}) => {
 
   const [currentSkillLevels, setCurrentSkillLevels] = 
     React.useState(skills.map((_) => UNSELECTED));
@@ -24,29 +25,8 @@ const App = ({skills, roles}) => {
     return currentSkillLevels[skillIndex];
   }
 
-
-
   let getSkillsToDevelop = () => {
-
-  //   skill: PropTypes.shape({
-  //     name: PropTypes.string.isRequired,
-  //     levels: PropTypes.shape({
-  //       current: PropTypes.shape({
-  //         name: PropTypes.string.isRequired
-  //       }).isRequired,
-  //       deficit: PropTypes.arrayOf(
-  //         PropTypes.shape({
-  //           name: PropTypes.string.isRequired,
-  //           examples: PropTypes.arrayOf(PropTypes.string).isRequired
-  //         })
-  //       )
-  //     }).isRequired
-  // }).isRequired
-    let skillsToDevelop =  
-      currentSkillLevels.map((_,index) => (
-        {
-          name: skills[index].name
-        }));    
+    let skillsToDevelop = DeficitCalculator(skills, roles, levels, currentSkillLevels, targetRole);
     return skillsToDevelop;
   };
 

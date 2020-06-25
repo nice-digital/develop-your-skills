@@ -5,10 +5,11 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import skills from './data/skills.json';
 import roles from './data/roles.json';
+import levels from './data/levels.json';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App skills={skills} roles={roles}/>
+    <App skills={skills} roles={roles} levels={levels}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
