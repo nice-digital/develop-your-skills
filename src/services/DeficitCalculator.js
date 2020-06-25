@@ -12,11 +12,15 @@ export let getTargetSkillLevel = (roles, targetRoleIndex, index) => {
 }
 
 export const DeficitCalculator = (skills, roles, levels, currentSkillLevels, targetRoleIndex) => {
+
+  let calculateDeficit = (currentSkillLevel, targetSkillLevel) => {
+    return Math.max(0, targetSkillLevel - currentSkillLevel);
+  }
  
   let skillsToDevelop =  
     currentSkillLevels.map((currentSkillLevel,skillIndex) => {
       const targetSkillLevel = getTargetSkillLevel(roles,targetRoleIndex, skillIndex);
-      const deficitDist = targetSkillLevel - currentSkillLevel;
+      const deficitDist = calculateDeficit(currentSkillLevel, targetSkillLevel);
   
       const currentLevels = getCurrentSkillLevels(skills, skillIndex);
       const deficitArray = getDeficitsForSkill(currentLevels, targetSkillLevel, deficitDist);

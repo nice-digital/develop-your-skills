@@ -75,8 +75,7 @@ export const SkillToDevelop = ({skill}) => {
         className={styles.rowcontainer}
         onClick={onClick}>
         <div className={styles.indicatorcontainer}>
-          {!isSkillLevelInDeficit() && createPositiveIndicator()}
-          {isSkillLevelInDeficit() && createDeficitIndicators()}
+          {!isSkillLevelInDeficit() ? createPositiveIndicator() : createDeficitIndicators()}
         </div>
         <div className={styles.buttoncontainer}>
           <button type="button" className={styles.button}>
