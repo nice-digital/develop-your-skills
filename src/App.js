@@ -4,21 +4,29 @@ import { SkillSelector, UNSELECTED } from './components/SkillSelector/SkillSelec
 import TargetRole from './components/TargetRole/TargetRole';
 import SkillsReport from './components/SkillsReport/SkillsReport';
 import { DeficitCalculator } from './services/DeficitCalculator';
+import { getQueryStringValue, setQueryStringValue } from "./utils/queryString";
 import styles from './App.module.scss';
 
 const App = ({skills, roles, levels}) => {
+  const targetRoleKey = 'target';
 
   const [currentSkillLevels, setCurrentSkillLevels] = 
-    React.useState(skills.map((_) => UNSELECTED));
+    React.useState(skills.map((skill) => getQueryStringValue(skill.id) || UNSELECTED));
 
-  const [targetRole, setTargetRole] = React.useState(UNSELECTED);
+  const [targetRole, setTargetRole] = React.useState( getQueryStringValue(targetRoleKey) ||UNSELECTED);
 
   let setSkillLevel = (skillIndex) => {
     return (levelIndex) => {
       let newSkills = currentSkillLevels;
       newSkills[skillIndex]=levelIndex;
       setCurrentSkillLevels([...newSkills]);
+      setQueryStringValue(skills[skillIndex].id, levelIndex);
     }
+  }
+
+  let setTargetRoleCallback = (role) => {
+    setTargetRole(role);
+    setQueryStringValue(targetRoleKey, role);
   }
 
   let getSkillLevel = (skillIndex) => {
@@ -38,7 +46,7 @@ const App = ({skills, roles, levels}) => {
     return (
       <section>
         <h2>2. Select your target role</h2>
-        <TargetRole roles={roles} setRoleSelected={setTargetRole} />          
+        <TargetRole roles={roles} setRoleSelected={setTargetRoleCallback} />          
       </section>     
     );
   };
