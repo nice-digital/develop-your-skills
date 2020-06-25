@@ -1,6 +1,6 @@
 import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
-import SkillToDevelop from "./SkillToDevelop";
+import { render, fireEvent, screen, within } from "@testing-library/react";
+import { SkillToDevelop, skillPlan } from "./SkillToDevelop";
 
 describe("Skill to develop", () => {
   const skill = {
@@ -42,22 +42,20 @@ describe("Skill to develop", () => {
 
     beforeEach(async () => { 
       fireEvent.click(screen.getByText(skill.name)); 
-      await screen.getByText(skill.levels.current.name);
+      await screen.getByText('What you need to do');
     });
     
-    // it('should show skill levels and examples', () => {
-    //   expect(screen.getByText(skill.levels.deficit[0].name)).toBeInTheDocument();
-    //   expect(screen.getByText(skill.levels.deficit[0].examples[0])).toBeInTheDocument();
-    //   expect(screen.getByText(skill.levels.deficit[0].examples[1])).toBeInTheDocument();
-    //   expect(screen.getByText(skill.levels.deficit[1].name)).toBeInTheDocument();
-    //   expect(screen.getByText(skill.levels.deficit[1].examples[0])).toBeInTheDocument();
-    //   expect(screen.getByText(skill.levels.deficit[1].examples[1])).toBeInTheDocument();
+    it('should show skill levels and examples', () => {
+      const { getByText } = within(screen.getByTestId(skillPlan));
 
-    // });
-      
-    // it('should collapse levels when skill name is clicked ', async () => {
-    //   fireEvent.click(screen.getByText(skill.name)); 
-    //   expect(screen.queryByText(skill.levels.current.name)).toBeNull();   
-    // });
+      expect(getByText(skill.levels.deficit[0].name)).toBeInTheDocument();
+      expect(getByText(skill.levels.deficit[0].examples[0])).toBeInTheDocument();
+      expect(getByText(skill.levels.deficit[0].examples[1])).toBeInTheDocument();
+      expect(getByText(skill.levels.deficit[1].name)).toBeInTheDocument();
+      expect(getByText(skill.levels.deficit[1].examples[0])).toBeInTheDocument();
+      expect(getByText(skill.levels.deficit[1].examples[1])).toBeInTheDocument();
+
+    });
+   
   });
 });

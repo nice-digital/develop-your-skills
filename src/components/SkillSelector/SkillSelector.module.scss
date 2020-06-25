@@ -1,10 +1,9 @@
 @import "~@nice-digital/nds-core/scss/core";
 
-$spacing-medium: 5;
-
 .root {
     margin: rem(0 0 $spacing-medium 0);
     height: 100%;
+    border: 2px solid grey;
 }
 
 .chevroncontainer {
@@ -42,7 +41,7 @@ $spacing-medium: 5;
     text-align: left;
     width: 100%;
     height: 100%;
- 
+    background-color: rgb(221, 221, 221);
 }
 
 .buttonSub {
@@ -52,9 +51,6 @@ $spacing-medium: 5;
 
 .info {
     margin: 1em 1em 1em 1em;
-    &[aria-hidden='true'] {
-        display: none;
-    }
 }
 
 

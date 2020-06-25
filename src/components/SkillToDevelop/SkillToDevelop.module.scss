@@ -23,13 +23,7 @@
     padding: rem($spacing-medium);
     text-align: left;
     position: relative;
-
-    &:focus {
-        @include default-focus-style;
-    }
-    &:hover {
-        @include default-focus-style;
-    }
+    background-color: rgb(221, 221, 221);
 }
 
 @mixin general-indicator-styles {
@@ -83,5 +77,9 @@
 
 .pathArrow {
     padding: 5px;
+}
+
+.moreInfo {
+    margin: 1em 1em 1em 1em;
 }
 

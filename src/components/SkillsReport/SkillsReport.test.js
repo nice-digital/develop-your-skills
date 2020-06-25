@@ -4,12 +4,24 @@ import SkillsReport from "./SkillsReport";
 
 describe('Skills report', () => {
   const skillsToDevelop = [
-    { 
-      "name": "Skill 1"
+    {
+      name: "Skill 1",
+      levels: {
+        current: {
+          name: "",
+        },
+        deficit: [],
+      },
     },
     {
-      "name": "Skill 2"
-    }
+      name: "Skill 2",
+      levels: {
+        current: {
+          name: "",
+        },
+        deficit: [],
+      },
+    },
   ];
   const targetRole = "Target role";
 

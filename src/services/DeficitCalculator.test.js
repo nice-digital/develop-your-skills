@@ -81,8 +81,8 @@ describe('Deficit calculator', () => {
   });
 
   it('should return skills with current level name', () => {
-    expect(output[0].levels.current.name).toEqual(levels[currentSkillLevels[0]]);
-    expect(output[1].levels.current.name).toEqual(levels[currentSkillLevels[1]]); 
+    expect(output[0].levels.current.name).toEqual(levels[currentSkillLevels[0]].name);
+    expect(output[1].levels.current.name).toEqual(levels[currentSkillLevels[1]].name); 
   });
 
   let getCurrentSkillLevel = (index, currentSkillLevels) => {

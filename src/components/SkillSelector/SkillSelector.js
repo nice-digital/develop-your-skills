@@ -36,22 +36,22 @@ export const SkillSelector = ({skill, selectedLevel, setLevelSelected}) => {
         <div className={styles.chevroncontainer}>
           <div className={`fa fa-chevron-${getUpDownState()}`}></div>
         </div>
-    
-        { showLevels ? 
-          <div className={styles.info}>
-            {skill.levels.map((level, index) => (
-              <section key={index}>
-                <LevelSelector
-                  level={level}
-                  levelIndex={index}
-                  skillName={skill.name}
-                  setLevelSelected={setLevelSelected}
-                  isSelected={isSelected(index)}/>
-              </section>
-            ))}
-          </div>
-          : null}
       </div>
+      { showLevels ? 
+        <div className={styles.info}>
+          {skill.levels.map((level, index) => (
+            <section key={index}>
+              <LevelSelector
+                level={level}
+                levelIndex={index}
+                skillName={skill.name}
+                setLevelSelected={setLevelSelected}
+                isSelected={isSelected(index)}/>
+            </section>
+          ))}
+        </div>
+        : null}
+      
     </section>
   );
 }

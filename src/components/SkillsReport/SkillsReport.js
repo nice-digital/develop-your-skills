@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import SkillToDevelop from "./../SkillToDevelop/SkillToDevelop";
+import { SkillToDevelop } from "./../SkillToDevelop/SkillToDevelop";
 
 export const skillsReportTestId = 'skill-report';
 

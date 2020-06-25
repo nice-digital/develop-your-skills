@@ -25,7 +25,7 @@ export const DeficitCalculator = (skills, roles, levels, currentSkillLevels, tar
         name: skills[skillIndex].name,
         levels: {
           current: {
-            name: levels[currentSkillLevel]
+            name: levels[currentSkillLevel].name
           },
           deficit: deficitArray
         }
