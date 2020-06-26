@@ -19,10 +19,18 @@ export const setQueryStringValue = (
    setQueryStringWithoutPageReload(`?${newQsValue}`);
 };
 
-export const getQueryStringValue = ( 
+export const getQueryStringValueAsString = ( 
   key, 
   queryString = window.location.search
 ) => { 
   const values = qs.parse(queryString); 
+  return values[key];
+};
+
+export const getQueryStringValueAsNumber = ( 
+  key, 
+  queryString = window.location.search
+) => { 
+  const values = qs.parse(queryString, {parseNumbers: true}); 
   return values[key];
 };

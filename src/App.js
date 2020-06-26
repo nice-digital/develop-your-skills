@@ -5,7 +5,7 @@ import TargetRole from './components/TargetRole/TargetRole';
 import SkillsReport from './components/SkillsReport/SkillsReport';
 import { DeficitCalculator } from './services/DeficitCalculator';
 import SkillSorter from './services/SkillSorter';
-import { getQueryStringValue, setQueryStringValue } from "./utils/queryString";
+import { getQueryStringValueAsString, getQueryStringValueAsNumber, setQueryStringValue } from "./utils/queryString";
 import styles from './App.module.scss';
 
 const App = ({skills, roles, levels}) => {
@@ -13,9 +13,9 @@ const App = ({skills, roles, levels}) => {
   const nameKey = 'name';
 
   const [currentSkillLevels, setCurrentSkillLevels] = 
-    React.useState(skills.map((skill) => getQueryStringValue(skill.id) || UNSELECTED));
-  const [targetRole, setTargetRole] = React.useState( getQueryStringValue(targetRoleKey) || UNSELECTED);
-  const [name, setName] = React.useState( getQueryStringValue(nameKey) || '');
+    React.useState( skills.map((skill) => getQueryStringValueAsNumber(skill.id) ?? UNSELECTED));
+  const [targetRole, setTargetRole] = React.useState( getQueryStringValueAsNumber(targetRoleKey) ?? UNSELECTED);
+  const [name, setName] = React.useState( getQueryStringValueAsString(nameKey) || '');
 
   let setSkillLevel = (skillIndex) => {
     return (levelIndex) => {
@@ -93,7 +93,7 @@ const App = ({skills, roles, levels}) => {
         ))}
       </section>
       {shouldShowTargetRole() && showTargetRoleSection()}      
-      {shouldShowSkillReport() && showSkillReportSection()}      
+      {shouldShowTargetRole() && shouldShowSkillReport() && showSkillReportSection()}      
     </div>
   );
 }

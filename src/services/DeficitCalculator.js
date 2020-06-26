@@ -1,6 +1,6 @@
 
-export let getDeficitsForSkill = (currentSkillLevels, targetSkillLevel, deficitDist) => {
-  return currentSkillLevels.slice(targetSkillLevel,targetSkillLevel+deficitDist);
+export let getDeficitsForSkill = (currentSkillLevels, nextSkillLevel, deficitDist) => {
+  return currentSkillLevels.slice(nextSkillLevel,nextSkillLevel+deficitDist);
 };
 
 export let getCurrentSkillLevels = (skills, skillIndex) => { 
@@ -23,7 +23,7 @@ export const DeficitCalculator = (skills, roles, levels, currentSkillLevels, tar
       const deficitDist = calculateDeficit(currentSkillLevel, targetSkillLevel);
   
       const currentLevels = getCurrentSkillLevels(skills, skillIndex);
-      const deficitArray = getDeficitsForSkill(currentLevels, targetSkillLevel, deficitDist);
+      const deficitArray = getDeficitsForSkill(currentLevels, currentSkillLevel+1, deficitDist);
 
       return ({
         name: skills[skillIndex].name,

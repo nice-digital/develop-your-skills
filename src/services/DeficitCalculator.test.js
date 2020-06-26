@@ -43,6 +43,12 @@ describe('Deficit calculator', () => {
         { skillId: 0, levelId: 1 }
       ],
     },
+    {
+      name: "Senior",
+      skillLevels: [
+        { skillId: 0, levelId: 2 }
+      ],
+    },
   ];
 
   describe('When current level is less than target level', () => {
@@ -88,6 +94,28 @@ describe('Deficit calculator', () => {
       const actualDeficits = getDeficitsForSkill(currentLevels, targetSkillLevel, deficitDist);
   
       expect(output[0].levels.deficit).toEqual(actualDeficits);
+    })
+    
+  })
+
+  describe('Current skill level is several levels lower than target level', () => {
+    const skillIndex = 0;
+    const currentLevel = 0;
+    const currentSkillLevels = [currentLevel];
+
+    const targetRoleIndex = 2;
+    const targetSkillLevel = getTargetSkillLevel(roles,targetRoleIndex, skillIndex);
+
+    const difference=targetSkillLevel-currentLevel;
+
+    let output = DeficitCalculator(skills, roles, levels, currentSkillLevels, targetRoleIndex);
+
+    it('there should be the right number of levels difference', () => {
+      expect(output[skillIndex].levels.deficit.length).toEqual(difference);
+    })
+    it('there the levels should be correct', () => {
+      expect(output[skillIndex].levels.deficit[0].name).toEqual('Working');
+      expect(output[skillIndex].levels.deficit[1].name).toEqual('Practitioner');
     })
   })
 
