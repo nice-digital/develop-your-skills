@@ -4,6 +4,7 @@ import { SkillSelector, UNSELECTED } from './components/SkillSelector/SkillSelec
 import TargetRole from './components/TargetRole/TargetRole';
 import SkillsReport from './components/SkillsReport/SkillsReport';
 import { DeficitCalculator } from './services/DeficitCalculator';
+import SkillSorter from './services/SkillSorter';
 import { getQueryStringValue, setQueryStringValue } from "./utils/queryString";
 import styles from './App.module.scss';
 
@@ -41,7 +42,8 @@ const App = ({skills, roles, levels}) => {
 
   let getSkillsToDevelop = () => {
     let skillsToDevelop = DeficitCalculator(skills, roles, levels, currentSkillLevels, targetRole);
-    return skillsToDevelop;
+    const sortedSkills = SkillSorter(skillsToDevelop);
+    return sortedSkills;
   };
 
   let shouldShowTargetRole = () => {
