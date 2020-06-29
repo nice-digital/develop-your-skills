@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-
+import ReactMarkdown from "react-markdown";
+import styles from "./LevelSelector.module.scss";
 
 const LevelSelector = ({level, levelIndex, skillName, setLevelSelected, isSelected}) => {
   let toDashed = (str) => {
@@ -18,11 +18,17 @@ const LevelSelector = ({level, levelIndex, skillName, setLevelSelected, isSelect
           value={levelIndex}
           onChange={e => setLevelSelected(parseInt(e.target.value))}
           checked={isSelected}></input>
-        <label htmlFor={toDashed(level.name)}>{level.name}</label>
+        <label 
+          htmlFor={toDashed(level.name)}
+          className={styles.levelLabel}>{level.name}</label>
       </div>
       <ul>
         {level.examples.map((example, index) => (
-          <li key={index}>{example}</li>
+          <li 
+            className={styles.levelLabel}
+            key={index}>
+            <ReactMarkdown source={example}/>
+          </li>
         ))}
       </ul>
     </div>

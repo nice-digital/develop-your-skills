@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ReactMarkdown from "react-markdown";
 import styles from "./SkillToDevelop.module.scss";
+
 
 export let skillPlan = 'skillPlan';
 
@@ -44,7 +46,7 @@ export const SkillToDevelop = ({skill}) => {
             <ul>
             {level.examples.map((example, index) => (
               <li key={index}>
-                <p>{example}</p>
+                <ReactMarkdown source={example}/>
               </li>
             ))}
             </ul>
