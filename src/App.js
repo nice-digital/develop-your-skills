@@ -76,6 +76,7 @@ const App = ({skills, roles, levels}) => {
   return (
     <div className={styles.app}>
       <h1>Develop your skills</h1>
+      <a href="/roles">View skills per role</a>
       <h2>1. Enter your name</h2>
       <div>
         <label for="fname">First name:</label>
