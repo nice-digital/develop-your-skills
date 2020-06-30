@@ -1,5 +1,6 @@
 {
-  "name": "develop-your-skills2",
+  "name": "develop-your-skills",
+  "homepage": "https://nice-digital.github.io/develop-your-skills",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -24,7 +25,9 @@
     "test": "react-scripts test --watchAll=true -i",
     "cov": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
-    "get-skills-data": "node src/scripts/getData.js"
+    "get-skills-data": "node src/scripts/getData.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

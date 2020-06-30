@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { SkillSelector, UNSELECTED } from './components/SkillSelector/SkillSelector';
 import TargetRole from './components/TargetRole/TargetRole';
@@ -77,7 +78,7 @@ const App = ({skills, roles, levels}) => {
     <div className={styles.app}>
       <h1>Develop your skills</h1>
       <p className="page-header__lead">A tool to help you identify skill development areas.  This tool uses data from the UK government <a href="https://www.gov.uk/government/collections/digital-data-and-technology-profession-capability-framework">Digital, Data and Technology Professional Capability Framework.</a></p>
-      <a href="/roles">View skills per role</a>
+      <Link to="/roles">View skills per role</Link>
       <h2>1. Enter your name</h2>
       <div>
         <label for="fname">First name:</label>
