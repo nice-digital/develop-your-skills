@@ -44,6 +44,7 @@ const RolesPage = ({skills, roles, levels}) => {
   return (
     <div className={styles.app}>
       <h1>Develop your skills</h1>
+      <p className="page-header__lead">A tool to help you identify skill development areas.  This tool uses data from the UK government <a href="https://www.gov.uk/government/collections/digital-data-and-technology-profession-capability-framework">Digital, Data and Technology Professional Capability Framework.</a></p>
       <a href="/">Back to home</a>
       <section>
         <div>

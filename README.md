@@ -1,68 +1,65 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Develop your skills
+
+This application is a tool to help you identify skill development areas to plan your career aspirations.  The job roles and skill levels are based on the [Digital, Data and Technology profession capability framework](https://www.gov.uk/government/collections/digital-data-and-technology-profession-capability-framework).
+
+Try it: [Develop your skills](https://nice-digital.github.com/develop-your-skills)
+
+## Why have we built this tool?
+The is a proof of concept to test out in career development planning for our development team
+
+
+## Technical stack
+
+This app is build with
+
+* React.js + bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
+* React testing library
+* NICE Design system
+
+## Skills data
+
+The skills data is fetched on startup from the [engineering repository](https://github.com/nice-digital/engineering/tree/master/skill-framework/skills).  Three files are fetched:
+* skills.json - collection of all levels of all skills, organised by skill
+* roles.json - a collection of developer roles with associated skill levels
+* levels.json - a definition of the different levels use across all skills
+
+# Setup
+
+## Installing dependencies
+
+Some initial dependencies that you may need if you haven't got them already:
+* Node.js
+* Node Package Manager (NPM)
+
+If you have just pulled down this code repository and have yet to run the app, you will need to install the dependencies:
+
+`npm install`
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### Running the app
 
-Runs the app in the development mode.<br />
+`npm start`
+
+Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
+The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `npm test`
+### Running tests
 
-Launches the test runner in the interactive watch mode.<br />
+`npm test`
+
+Launches the test runner in the interactive watch mode.  There are currently no tests for this! (To improve)
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
 ### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+`npm run deploy`
 
-### `npm run build` fails to minify
+This app is configured to deploy to [https://nice-digital.github.com/develop-your-skills](a github hosted page)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
