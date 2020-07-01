@@ -23,7 +23,11 @@ describe('Skills report', () => {
       },
     },
   ];
-  const targetRole = "Target role";
+  const targetRole = { 
+    name: "Target role",
+    summary: "Summary",
+    bullets: []
+  };
 
   beforeEach(() => render(<SkillsReport targetRole={targetRole} skillsToDevelop={skillsToDevelop}/>));
 

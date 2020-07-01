@@ -5,10 +5,19 @@ import { SkillToDevelop } from "./../SkillToDevelop/SkillToDevelop";
 export const skillsReportTestId = 'skill-report';
 
 const SkillsReport = ({skillsToDevelop, targetRole}) => {
-
+  console.log(targetRole);
   return (
     <section data-testid={skillsReportTestId}>
-      <p>To be a <span><b>{targetRole}</b></span>, you need to focus on developing skill in the following areas:</p> 
+      <h3>{targetRole.name}</h3>
+      <p>{targetRole.summary.blurb}</p>
+      <ul>
+        {targetRole.summary.bullets.map((bullet, i) => (
+          <li key={i}>
+            <span>{bullet}</span>
+          </li>
+        ))}
+      </ul>
+      <p>To be a <span><b>{targetRole.name}</b></span>, you need to focus on developing skill in the following areas:</p> 
       <div>
         {skillsToDevelop.map((skill, index) => (
           <div key={index}>
@@ -22,8 +31,7 @@ const SkillsReport = ({skillsToDevelop, targetRole}) => {
 
 SkillsReport.propTypes = { 
   skillsToDevelop: PropTypes.arrayOf(
-    PropTypes.shape(SkillToDevelop.propTypes)).isRequired,
-  targetRole: PropTypes.string
+    PropTypes.shape(SkillToDevelop.propTypes)).isRequired
  };
 
  export default SkillsReport;

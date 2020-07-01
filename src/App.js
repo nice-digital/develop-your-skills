@@ -70,7 +70,7 @@ const App = ({skills, roles, levels}) => {
     return (
       <section>
         <h2>4. Develop your skills</h2>
-        <SkillsReport skillsToDevelop={getSkillsToDevelop()} targetRole={roles[targetRole].name}/>
+        <SkillsReport skillsToDevelop={getSkillsToDevelop()} targetRole={roles[targetRole]}/>
       </section>
     );
   };

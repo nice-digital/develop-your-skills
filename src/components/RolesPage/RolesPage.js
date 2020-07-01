@@ -21,9 +21,19 @@ const RolesPage = ({skills, roles, levels}) => {
 
   let showSkills = () => {
     let currentSkillLevels = roles[roleSelected].skillLevels;
-
-    return (  
+    let role = roles[roleSelected];
+    return (
       <div>
+        <h2>{role.name}</h2>
+        <p>{role.summary.blurb}</p>
+        <ul>
+          {role.summary.bullets.map((bullet, i) => (
+            <li key={i}>
+              <span>{bullet}</span>
+            </li>
+          ))}
+        </ul>
+
         <p>The levels of skill expected for this role are:</p>
         {currentSkillLevels.map((skill, index) => (
           <div>
@@ -31,17 +41,16 @@ const RolesPage = ({skills, roles, levels}) => {
             <h4>Level: {levels[skill.levelId].name}</h4>
             <p>Some example skills and behaviours at this level include:</p>
             <ul>
-              {getSkillLevelExamples(skill,index).map((example, index2) => (
-                <li 
-                  key={index2}>
-                  <ReactMarkdown source={example}/>
+              {getSkillLevelExamples(skill, index).map((example, index2) => (
+                <li key={index2}>
+                  <ReactMarkdown source={example} />
                 </li>
               ))}
             </ul>
           </div>
         ))}
       </div>
-    )
+    );
   }
 
   return (
@@ -51,7 +60,6 @@ const RolesPage = ({skills, roles, levels}) => {
       <Banner/>
       <section>
         <div>
-          <h2>Select role</h2>
           <select data-testid="role-select" value={roleSelected} onChange={e => setRoleSelected(parseInt(e.target.value))}>
             <option key="unset" value="unset">
               Select role
