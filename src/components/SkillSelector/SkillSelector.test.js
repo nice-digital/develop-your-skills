@@ -50,35 +50,35 @@ describe("Skill selector", () => {
 
     beforeEach(async () => { 
       fireEvent.click(screen.getByText(skill.name)); 
-      await screen.getByText(skill.levels[0].name);
+      await screen.getByText(skill.levels[0].name, {exact: false});
     });
     
     it('should show skill levels', () => {
-      expect(screen.getByText(skill.levels[0].name)).toBeInTheDocument();
-      expect(screen.getByText(skill.levels[1].name)).toBeInTheDocument();
+      expect(screen.getByText(skill.levels[0].name, {exact: false})).toBeInTheDocument();
+      expect(screen.getByText(skill.levels[1].name, {exact: false})).toBeInTheDocument();
     });
 
     it('should only be able to select one level in the group', () => {
-      let level1 = screen.getByLabelText(skill.levels[0].name);
+      let level1 = screen.getAllByRole('radio')[0];
       let level2;
 
       clickLevelRerender(level1);
-      level1 = screen.getByLabelText(skill.levels[0].name);
-      level2 = screen.getByLabelText(skill.levels[1].name);
+      level1 = screen.getAllByRole('radio')[0];;
+      level2 = screen.getAllByRole('radio')[1];;
 
       expect(level1).toBeChecked();
       expect(level2).not.toBeChecked();
 
       clickLevelRerender(level2);
-      level1 = screen.getByLabelText(skill.levels[0].name);
-      level2 = screen.getByLabelText(skill.levels[1].name);
+      level1 = screen.getAllByRole('radio')[0];;
+      level2 = screen.getAllByRole('radio')[1];;
       expect(level1).not.toBeChecked();
       expect(level2).toBeChecked();
     })
 
     
     it('should retain level selection on expand/collapse', () => {
-      const radio = screen.getByLabelText(skill.levels[1].name);
+      const radio = screen.getAllByRole('radio')[1];
       clickLevelRerender(radio);
       fireEvent.click(screen.getByText(skill.name)); 
       fireEvent.click(screen.getByText(skill.name)); 
@@ -104,7 +104,7 @@ describe("Skill selector", () => {
     it('should show selected level text ', () => {  
       const levelName = skill.levels[0].name
       fireEvent.click(screen.getByText(skill.name)); //expand
-      const radio = screen.getByLabelText(levelName);
+      const radio = screen.getAllByRole('radio')[0];
       clickLevelRerender(radio);
       fireEvent.click(screen.getByText(skill.name)); //collapse
 

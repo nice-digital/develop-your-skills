@@ -18,7 +18,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
-        <Route path="/roles">
+        <Route path="/framework">
           <RolesPage skills={skills} roles={roles} levels={levels}/>
         </Route>       
         <Route path="/">

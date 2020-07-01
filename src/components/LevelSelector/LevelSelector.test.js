@@ -4,7 +4,7 @@ import LevelSelector from "./LevelSelector";
 
 describe("LevelSelector ", () => {
   const level = {
-    name: "level",
+    name: "level name",
     examples: [
         "Example 1",
         "Example 2"
@@ -24,14 +24,14 @@ describe("LevelSelector ", () => {
           isSelected={false}/>).getByText);
 
     it('should render skill levels with examples', () => {
-      expect(getByText(level.name)).toBeInTheDocument();
+      expect(getByText(level.name, {exact: false})).toBeInTheDocument();
       expect(getByText(level.examples[0])).toBeInTheDocument();
       expect(getByText(level.examples[1])).toBeInTheDocument();
     });
   
     it('should render skill level as unchecked by default', () => {
-      let checkbox = getByText(level.name);
-      expect(checkbox).not.toHaveProperty('checked');
+      let checkbox = screen.getByRole('radio');
+      expect(checkbox).not.toBeChecked();
     }); 
   })
   describe('when a level is selected', () => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from "react-markdown";
+import Banner from '../Banner';
 
 import styles from './RolesPage.module.scss'
 
@@ -23,11 +24,12 @@ const RolesPage = ({skills, roles, levels}) => {
 
     return (  
       <div>
-        <p>The skills expected for this role are:</p>
+        <p>The levels of skill expected for this role are:</p>
         {currentSkillLevels.map((skill, index) => (
           <div>
             <h3>{getSkillLevelName(index)}</h3>
-            <p>A skill level of <span><strong>{levels[skill.levelId].name}</strong></span>:</p>
+            <h4>Level: {levels[skill.levelId].name}</h4>
+            <p>Some example skills and behaviours at this level include:</p>
             <ul>
               {getSkillLevelExamples(skill,index).map((example, index2) => (
                 <li 
@@ -44,9 +46,9 @@ const RolesPage = ({skills, roles, levels}) => {
 
   return (
     <div className={styles.app}>
-      <h1>Develop your skills</h1>
-      <p className="page-header__lead">A tool to help you identify skill development areas.  This tool uses data from the UK government <a href="https://www.gov.uk/government/collections/digital-data-and-technology-profession-capability-framework">Digital, Data and Technology Professional Capability Framework.</a></p>
-      <Link to="/">Back to home</Link>
+      <h1>Skill framework</h1>
+      <p className="page-header__lead">This skill framework is based on the UK Government <a href="https://www.gov.uk/government/collections/digital-data-and-technology-profession-capability-framework">Digital, Data and Technology Professional Capability Framework</a>.  We use this to help <Link to="/">develop our skills</Link></p>
+      <Banner/>
       <section>
         <div>
           <h2>Select role</h2>

@@ -6,6 +6,7 @@ import TargetRole from './components/TargetRole/TargetRole';
 import SkillsReport from './components/SkillsReport/SkillsReport';
 import { DeficitCalculator } from './services/DeficitCalculator';
 import SkillSorter from './services/SkillSorter';
+import Banner from './components/Banner';
 import { getQueryStringValueAsString, getQueryStringValueAsNumber, setQueryStringValue } from "./utils/queryString";
 import styles from './App.module.scss';
 
@@ -76,12 +77,14 @@ const App = ({skills, roles, levels}) => {
 
   return (
     <div className={styles.app}>
-      <h1>Develop your skills</h1>
-      <p className="page-header__lead">A tool to help you identify skill development areas.  This tool uses data from the UK government <a href="https://www.gov.uk/government/collections/digital-data-and-technology-profession-capability-framework">Digital, Data and Technology Professional Capability Framework.</a></p>
-      <Link to="/roles">View skills per role</Link>
+      <div className="page-header">
+        <h1 className="page-header__heading">Develop your skills</h1>
+        <p className="page-header__lead">Identify skill development areas using our <Link to="/framework">skill framework</Link></p>
+        <Banner/>
+      </div>
       <h2>1. Enter your name</h2>
       <div>
-        <label for="fname">First name:</label>
+        <label htmlFor="fname">Name:</label>
         <input type="text" id="fname" name="fname" onChange={e => setNameCallback(e.target.value)} value={name}></input>
       </div>
       <h2>2. Select your skill levels</h2>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom'
 import { render, screen, fireEvent, within } from '@testing-library/react';
 import App from './App';
 import { skillsReportTestId } from './components/SkillsReport/SkillsReport';
@@ -41,10 +42,10 @@ describe('Develop your skills app', () => {
   ];
 
   let rerender;
-  let construct = () => <App skills={skills} roles={roles} levels={levels} />;
+  let construct = () => <App skills={skills} roles={roles} levels={levels} />
 
   beforeEach(() => {
-    rerender = render(construct()).rerender;
+    rerender = render(construct(), { wrapper: MemoryRouter }).rerender;
   });
 
   it('should show the main heading', () => {
@@ -66,7 +67,7 @@ describe('Develop your skills app', () => {
     let selectFirstLevelFor = (skill) => {
       const sk = screen.getByText(skill.name);
       fireEvent.click(sk);
-      const level = screen.getByLabelText(skill.levels[0].name);
+      const level = screen.getAllByRole('radio')[0];
       fireEvent.click(level);
       fireEvent.click(sk);
     }

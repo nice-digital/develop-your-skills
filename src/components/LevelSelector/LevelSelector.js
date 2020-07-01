@@ -10,27 +10,34 @@ const LevelSelector = ({level, levelIndex, skillName, setLevelSelected, isSelect
 
   return (
     <div>
-      <div>
+      <div data-g="1">
+        <div class="grid-example-item">
         <input 
           type="radio"
+          className={styles.centred}
           id={toDashed(level.name)}
           name={skillName}
           value={levelIndex}
           onChange={e => setLevelSelected(parseInt(e.target.value))}
           checked={isSelected}></input>
-        <label 
-          htmlFor={toDashed(level.name)}
-          className={styles.levelLabel}>{level.name}</label>
+        </div>
       </div>
-      <ul>
-        {level.examples.map((example, index) => (
-          <li 
-            className={styles.levelLabel}
-            key={index}>
-            <ReactMarkdown source={example}/>
-          </li>
-        ))}
-      </ul>
+      <div data-g="11">
+        <div className="grid-example-item">
+          <label htmlFor={toDashed(level.name)}><h4 className={styles.noMargin}>Level: {level.name}</h4></label>
+          <p>Some example skills and behaviours at this level include:</p>
+          <ul>
+            {level.examples.map((example, index) => (
+              <li 
+                className={styles.levelLabel}
+                key={index}>
+                <ReactMarkdown source={example}/>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      
     </div>
   );
 };

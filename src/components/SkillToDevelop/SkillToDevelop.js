@@ -39,10 +39,11 @@ export const SkillToDevelop = ({skill}) => {
 
   let buildSkillDeficitPlan = () => {
     return (
-      <ul data-testid={skillPlan}>
+      <div data-testid={skillPlan}>
         {skill.levels.deficit.map((level, index) => (
-          <li key={index}>
-            <p>Skill level of <strong>{level.name}</strong> looks like:</p>
+          <div>
+            <h4>Level: {level.name}</h4>
+            <p>Some example skills and behaviours at this level include:</p>
             <ul>
             {level.examples.map((example, index) => (
               <li key={index}>
@@ -50,9 +51,9 @@ export const SkillToDevelop = ({skill}) => {
               </li>
             ))}
             </ul>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     )
   }
 

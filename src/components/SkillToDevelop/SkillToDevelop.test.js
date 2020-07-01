@@ -48,10 +48,10 @@ describe("Skill to develop", () => {
     it('should show skill levels and examples', () => {
       const { getByText } = within(screen.getByTestId(skillPlan));
 
-      expect(getByText(skill.levels.deficit[0].name)).toBeInTheDocument();
+      expect(getByText(skill.levels.deficit[0].name, {exact: false})).toBeInTheDocument();
       expect(getByText(skill.levels.deficit[0].examples[0])).toBeInTheDocument();
       expect(getByText(skill.levels.deficit[0].examples[1])).toBeInTheDocument();
-      expect(getByText(skill.levels.deficit[1].name)).toBeInTheDocument();
+      expect(getByText(skill.levels.deficit[1].name, {exact: false})).toBeInTheDocument();
       expect(getByText(skill.levels.deficit[1].examples[0])).toBeInTheDocument();
       expect(getByText(skill.levels.deficit[1].examples[1])).toBeInTheDocument();
 
