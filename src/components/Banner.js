@@ -7,7 +7,7 @@ const Banner = () => {
         <span className="tag tag--impact tag--alpha">Alpha</span>
       </span>
       <span className="phase-banner__label">
-        We are testing this out – your <a href="https://github.com/nice-digital/develop-your-skills/issues/new">feedback</a> is important.
+        We are testing this out. Feedback by opening an issue in <a href="https://github.com/nice-digital/develop-your-skills/issues">GitHub</a>.
       </span>
     </p>
   );
