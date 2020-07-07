@@ -6,7 +6,7 @@ import {
   Route
 } from "react-router-dom";
 import App from './App';
-import RolesPage from './components/RolesPage/RolesPage';
+import FrameworkPage from './components/FrameworkPage/FrameworkPage';
 import * as serviceWorker from './serviceWorker';
 import skills from './data/skills.json';
 import roles from './data/roles.json';
@@ -19,7 +19,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route path="/framework">
-          <RolesPage skills={skills} roles={roles} levels={levels}/>
+          <FrameworkPage skills={skills} roles={roles} levels={levels}/>
         </Route>       
         <Route path="/">
           <App skills={skills} roles={roles} levels={levels}/>

@@ -1,27 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ReactMarkdown from "react-markdown";
 import Banner from '../Banner';
+import SkillLevelInfo from '../SkillLevelInfo/SkillLevelInfo';
 
-import styles from './RolesPage.module.scss'
+import styles from './FrameworkPage.module.scss'
 
-
-const RolesPage = ({skills, roles, levels}) => {
+const FrameworkPage = ({skills, roles, levels}) => {
 
   const UNSELECTED = -1;
 
   const [roleSelected, setRoleSelected] = React.useState(UNSELECTED);
+ 
+  let roleIsSelected = () => roleSelected > -1
 
-  let roleIsSelected = () => {
-    return roleSelected > -1;
-  }
-
-  let getSkillLevelName = (index) => skills[index].name;
-  let getSkillLevelExamples = (skill, index) => skills[index].levels[skill.levelId].examples;
 
   let showSkills = () => {
-    let currentSkillLevels = roles[roleSelected].skillLevels;
     let role = roles[roleSelected];
+    let currentSkillLevels = roles[roleSelected].skillLevels;
+
     return (
       <div>
         <h2>{role.name}</h2>
@@ -33,21 +29,8 @@ const RolesPage = ({skills, roles, levels}) => {
             </li>
           ))}
         </ul>
-
-        <p>The levels of skill expected for this role are:</p>
-        {currentSkillLevels.map((skill, index) => (
-          <div>
-            <h3>{getSkillLevelName(index)}</h3>
-            <h4>Level: {levels[skill.levelId].name}</h4>
-            <p>Some example skills and behaviours at this level include:</p>
-            <ul>
-              {getSkillLevelExamples(skill, index).map((example, index2) => (
-                <li key={index2}>
-                  <ReactMarkdown source={example} />
-                </li>
-              ))}
-            </ul>
-          </div>
+        {currentSkillLevels.map((skillLevel, index) => (
+          <SkillLevelInfo skills={skills} skillLevel={skillLevel} index={index}/>
         ))}
       </div>
     );
@@ -77,4 +60,4 @@ const RolesPage = ({skills, roles, levels}) => {
   )
 };
 
-export default RolesPage;
+export default FrameworkPage;
