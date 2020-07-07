@@ -44,7 +44,7 @@ export const SkillSelector = ({skill, selectedLevel, setLevelSelected}) => {
             {skill.levels.map((level, index) => (
               <section key={index}>
                 <LevelSelector
-                  level={level}
+                  level={{...level, id: index}}
                   levelIndex={index}
                   skillName={skill.name}
                   setLevelSelected={setLevelSelected}

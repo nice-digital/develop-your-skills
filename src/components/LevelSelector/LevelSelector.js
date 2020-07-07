@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactMarkdown from "react-markdown";
+import Level from '../Level/Level';
 import styles from "./LevelSelector.module.scss";
 
 const LevelSelector = ({level, levelIndex, skillName, setLevelSelected, isSelected}) => {
@@ -11,7 +12,7 @@ const LevelSelector = ({level, levelIndex, skillName, setLevelSelected, isSelect
   return (
     <div>
       <div data-g="1">
-        <div class="grid-example-item">
+        <div className="grid-example-item">
         <input 
           type="radio"
           className={styles.centred}
@@ -24,7 +25,8 @@ const LevelSelector = ({level, levelIndex, skillName, setLevelSelected, isSelect
       </div>
       <div data-g="11">
         <div className="grid-example-item">
-          <label htmlFor={toDashed(level.name)}><h4 className={styles.noMargin}>Level: {level.name}</h4></label>
+          <Level level={level}/>
+          {/* <label htmlFor={toDashed(level.name)}><h4 className={styles.noMargin}>Level: {level.name}</h4></label>
           <p>Some example skills and behaviours at this level include:</p>
           <ul>
             {level.examples.map((example, index) => (
@@ -34,7 +36,7 @@ const LevelSelector = ({level, levelIndex, skillName, setLevelSelected, isSelect
                 <ReactMarkdown source={example}/>
               </li>
             ))}
-          </ul>
+          </ul> */}
         </div>
       </div>
       

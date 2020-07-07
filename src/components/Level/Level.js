@@ -17,12 +17,12 @@ const Level = ({level, isCurrent = false}) => {
   }
 
   let getHeading = () => {
-    return isCurrent ? `Current level: ${level.name}` : level.name;
+    return isCurrent ? `Expected level: ${level.name}` : level.name;
   }
   return (
     <div className={getClassName(level.id)}>
       <div>
-        <h4>{level.name}</h4>
+        <h4>{getHeading()}</h4>
         <p>Some example skills and behaviours at this level include:</p>
         <ul>
           {level.examples.map((example, index) => (
