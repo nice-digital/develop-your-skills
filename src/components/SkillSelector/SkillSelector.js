@@ -39,7 +39,7 @@ export const SkillSelector = ({skill, selectedLevel, setLevelSelected}) => {
       </div>
       { showLevels ? 
         <div className={styles.info}>
-          <div class="grid grid--gutterless">
+          <div >
             
             {skill.levels.map((level, index) => (
               <section key={index}>

@@ -10,36 +10,24 @@ const LevelSelector = ({level, levelIndex, skillName, setLevelSelected, isSelect
   }
 
   return (
-    <div>
-      <div data-g="1">
-        <div className="grid-example-item">
-        <input 
-          type="radio"
-          className={styles.centred}
-          id={toDashed(level.name)}
-          name={skillName}
-          value={levelIndex}
-          onChange={e => setLevelSelected(parseInt(e.target.value))}
-          checked={isSelected}></input>
+    <div className={styles.container}>
+      <div>
+        <Level level={level}/>
+      </div>
+      <label 
+        className={`${styles.pushRight} ${styles.label}`}
+        htmlFor={toDashed(level.name)}>Select this level</label>
+      <div className={`${styles.item}`}>
+        <div className={styles.radio}>
+          <input 
+            type="radio"
+            id={toDashed(level.name)}
+            name={skillName}
+            value={levelIndex}
+            onChange={e => setLevelSelected(parseInt(e.target.value))}
+            checked={isSelected}></input>
         </div>
       </div>
-      <div data-g="11">
-        <div className="grid-example-item">
-          <Level level={level}/>
-          {/* <label htmlFor={toDashed(level.name)}><h4 className={styles.noMargin}>Level: {level.name}</h4></label>
-          <p>Some example skills and behaviours at this level include:</p>
-          <ul>
-            {level.examples.map((example, index) => (
-              <li 
-                className={styles.levelLabel}
-                key={index}>
-                <ReactMarkdown source={example}/>
-              </li>
-            ))}
-          </ul> */}
-        </div>
-      </div>
-      
     </div>
   );
 };

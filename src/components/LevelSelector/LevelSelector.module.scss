@@ -1,13 +1,19 @@
+* {box-sizing: border-box;}
 
-.levelLabel {
-  margin-left: 1em;
+.container {
+  display: flex;
 }
 
-.noMargin {
-  margin-top: 0px;
+.pushRight {
+  margin-left: auto;
 }
 
-.centred {
-  position: relative;
-  left: 40%;
+.radio {
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.label {
+  margin-top: 20px;
+  margin-right: 20px;
 }
