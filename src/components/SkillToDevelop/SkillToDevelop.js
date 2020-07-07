@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import ReactMarkdown from "react-markdown";
-import styles from "./SkillToDevelop.module.scss";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Level from '../Level/Level';
+import styles from './SkillToDevelop.module.scss';
 
 
 export let skillPlan = 'skillPlan';
@@ -12,7 +12,7 @@ export const SkillToDevelop = ({skill}) => {
   const onClick = () => setShowDetails(!showDetails)
 
   let getUpDownState = () => {
-    return showDetails ? "up" : "down";
+    return showDetails ? 'up' : 'down';
   }
   let isSkillLevelInDeficit = () => {
     return skill.levels.deficit.length > 0;
@@ -40,18 +40,8 @@ export const SkillToDevelop = ({skill}) => {
   let buildSkillDeficitPlan = () => {
     return (
       <div data-testid={skillPlan}>
-        {skill.levels.deficit.map((level, index) => (
-          <div>
-            <h4>Level: {level.name}</h4>
-            <p>Some example skills and behaviours at this level include:</p>
-            <ul>
-            {level.examples.map((example, index) => (
-              <li key={index}>
-                <ReactMarkdown source={example}/>
-              </li>
-            ))}
-            </ul>
-          </div>
+        {skill.levels.deficit.map(level => (
+          <Level level={level}/>
         ))}
       </div>
     )

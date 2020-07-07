@@ -54,7 +54,7 @@ const App = ({skills, roles, levels}) => {
 
   let showTargetRoleSection = () => {
     return (
-      <section>
+      <section className={styles.section}>
         <h2>3. Select your target role</h2>
         <TargetRole roles={roles} setRoleSelected={setTargetRoleCallback} targetRole={targetRole} />          
       </section>     
@@ -68,7 +68,7 @@ const App = ({skills, roles, levels}) => {
 
   let showSkillReportSection = () => {
     return (
-      <section>
+      <section className={styles.section}>
         <h2>4. Develop your skills</h2>
         <SkillsReport skillsToDevelop={getSkillsToDevelop()} targetRole={roles[targetRole]}/>
       </section>

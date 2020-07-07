@@ -37,15 +37,12 @@ const SkillLevelInfo = ({skills, skillLevel, index}) => {
     let nextLevels = skills[currentSkillIdx].levels
                       .map((level, index) => ({...level, id: index}))
                       .slice(currentLevelIdx+1)
-                      .reverse();
     return showLevels(nextLevels);
   }
   let showPreviousLevels = (currentLevelIdx, currentSkillIdx) => {
     let previousLevels = skills[currentSkillIdx].levels
                           .map((level, index) => ({...level, id: index}))
                           .slice(0,currentLevelIdx)
-                          .reverse();
-
     return showLevels(previousLevels);
   }
 
@@ -53,20 +50,22 @@ const SkillLevelInfo = ({skills, skillLevel, index}) => {
     <div>
       <h3>{getSkillLevelName(index)}</h3>
       <p>{getSkillDesc(index)}</p>
-      <p>The level of skill expected for this role are:</p>
       {showAllLevels ? 
-        <div className={styles.nextLevels}>
-          {showNextLevels(skillLevel.levelId, index)}
-        </div> 
-      : null}
-      <div className={showAllLevels && styles.currentLevel}>
-        <Level level={getCurrentSkillLevel(skillLevel.levelId, index)} isCurrent={showAllLevels && true}/>
-      </div>
-      {showAllLevels ? 
-        <div className={styles.previousLevels}>
-          {showPreviousLevels(skillLevel.levelId, index)}
+        <div>
+          <div className={styles.previousLevels}>
+            {showPreviousLevels(skillLevel.levelId, index)}
+          </div>
+          <div className={styles.currentLevel}>
+            <Level level={getCurrentSkillLevel(skillLevel.levelId, index)} isCurrent={true}/>
+          </div>
+          <div className={styles.nextLevels}>
+            {showNextLevels(skillLevel.levelId, index)}
+          </div> 
         </div>
-      : null}
+      : 
+        <div>
+          <Level level={getCurrentSkillLevel(skillLevel.levelId, index)} isCurrent={true}/>
+        </div>}
       <span 
         className={styles.toggleShowAllLevels}
         onClick={toggleShowAllLevels}>

@@ -23,7 +23,8 @@ export const DeficitCalculator = (skills, roles, levels, currentSkillLevels, tar
       const deficitDist = calculateDeficit(currentSkillLevel, targetSkillLevel);
   
       const currentLevels = getCurrentSkillLevels(skills, skillIndex);
-      const deficitArray = getDeficitsForSkill(currentLevels, currentSkillLevel+1, deficitDist);
+      const currentLevelsWithOrder = currentLevels.map((l, index) => {return {...l, id: index}});
+      const deficitArray = getDeficitsForSkill(currentLevelsWithOrder, currentSkillLevel+1, deficitDist);
 
       return ({
         name: skills[skillIndex].name,
