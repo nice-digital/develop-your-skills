@@ -25,14 +25,16 @@ describe('Skills report', () => {
   ];
   const targetRole = { 
     name: "Target role",
-    summary: "Summary",
-    bullets: []
+    summary: {
+      blurb: "Summary",
+      bullets: []
+    }
   };
 
   beforeEach(() => render(<SkillsReport targetRole={targetRole} skillsToDevelop={skillsToDevelop}/>));
 
   it('should show target role blurb', () => {
-    expect(screen.getByText('Target role')).toBeInTheDocument();
+    expect(screen.getByText('Summary')).toBeInTheDocument();
   });
 
   it('should show list of skills to develop', () => {

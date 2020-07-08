@@ -27,7 +27,11 @@ describe('Develop your skills app', () => {
   ];
   const roles = [
     {
-      "name": "Role 1 Name",
+      name: "Role 1 Name",
+      summary: {
+        blurb: "",
+        bullets: []
+      },
       skillLevels: [
         { skillId: 0, levelId: 0 },
         { skillId: 1, levelId: 0 }

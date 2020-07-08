@@ -85,15 +85,16 @@ describe('Deficit calculator', () => {
   
     
     it('should return skills with deficit examples', () => {
-      const skillIndex = 0;
-      const currentSkillLevel = getCurrentSkillLevel(skillIndex, currentSkillLevels);
-      const targetSkillLevel = getTargetSkillLevel(roles,targetRoleIndex, skillIndex);
-      const deficitDist = targetSkillLevel - currentSkillLevel;
   
-      const currentLevels = getCurrentSkillLevels(skills, skillIndex);
-      const actualDeficits = getDeficitsForSkill(currentLevels, targetSkillLevel, deficitDist);
-  
-      expect(output[0].levels.deficit).toEqual(actualDeficits);
+      let expectedDeficits = 
+        [
+          {
+            name: 'Working',
+            examples: [ 'Working example1', 'Working example2' ],
+            id: 1
+          }
+        ]
+      expect(output[0].levels.deficit).toEqual(expectedDeficits);
     })
     
   })
