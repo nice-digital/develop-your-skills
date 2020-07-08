@@ -1,6 +1,7 @@
 const YAML = require('yamljs');
 const fs = require('fs');
 const fetch = require("node-fetch");
+require('dotenv').config();
 
 async function getJsonFromUrl(url){
   let response = await fetch(url);
@@ -32,16 +33,19 @@ function writeFile(pathToFile, contents){
 
 async function getData(){
 
-  const baseUrl = 'https://raw.githubusercontent.com/nice-digital/engineering/master/skill-framework/skills';
   const dataFolder = 'src/data/'
   
-  const skillsUrl = `${baseUrl}/example-skills.yml`;
-  const rolesUrl = `${baseUrl}/example-roles.json`;
-  const levelsUrl = `${baseUrl}/example-levels.json`;
+
   const ERROR = 1;
   const SUCCESS = 0;
 
   try{
+    const skillsUrl = process.env.REACT_APP_SKILL_SOURCE_URL;
+    const rolesUrl = process.env.REACT_APP_ROLE_SOURCE_URL;
+    const levelsUrl = process.env.REACT_APP_LEVEL_SOURCE_URL;
+    console.log('Retrieving skills data from: ' + skillsUrl);
+    console.log('Retrieving roles data from: ' + rolesUrl);
+    console.log('Retrieving levels data from: ' + levelsUrl);
       
     let skills = await getSkills(skillsUrl);
     writeFile(`${dataFolder}/skills.json`, JSON.stringify(skills));
