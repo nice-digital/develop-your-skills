@@ -1,0 +1,17 @@
+@import "~@nice-digital/nds-core/scss/core";
+
+.app {
+    @extend %container;
+}
+
+
+.select {
+  margin: rem($spacing-medium);
+}
+
+.contentBox {
+  border: 2px solid black;
+  background-color: white;
+  padding: rem($spacing-medium);
+  margin-bottom: rem($spacing-large);
+}

@@ -30,7 +30,7 @@ const FrameworkPage = ({skills, roles, levels}) => {
           ))}
         </ul>
         {currentSkillLevels.map((skillLevel, index) => (
-          <SkillLevelInfo skills={skills} skillLevel={skillLevel} index={index}/>
+          <SkillLevelInfo skills={skills} skillLevel={skillLevel} index={index} isForFeedback={false}/>
         ))}
       </div>
     );

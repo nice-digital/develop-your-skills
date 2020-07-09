@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import App from './App';
 import FrameworkPage from './components/FrameworkPage/FrameworkPage';
+import FeedbackPage from './components/FeedbackPage/FeedbackPage';
 import * as serviceWorker from './serviceWorker';
 import skills from './data/skills.json';
 import roles from './data/roles.json';
@@ -20,7 +21,10 @@ ReactDOM.render(
       <Switch>
         <Route path="/framework">
           <FrameworkPage skills={skills} roles={roles} levels={levels}/>
-        </Route>       
+        </Route>  
+        <Route path="/feedback">
+          <FeedbackPage skills={skills} roles={roles} levels={levels}/>
+        </Route>            
         <Route path="/">
           <App skills={skills} roles={roles} levels={levels}/>
         </Route>

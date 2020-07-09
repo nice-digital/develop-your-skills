@@ -3,7 +3,7 @@ import Level from '../Level/Level';
 import styles from './SkillLevelInfo.module.scss'
 
 
-const SkillLevelInfo = ({skills, skillLevel, index}) => {
+const SkillLevelInfo = ({skills, skillLevel, index, isForFeedback}) => {
   const [showAllLevels, setShowAllLevels] = React.useState(false)
   const toggleShowAllLevels = () => setShowAllLevels(!showAllLevels)
 
@@ -66,11 +66,13 @@ const SkillLevelInfo = ({skills, skillLevel, index}) => {
         <div>
           <Level level={getCurrentSkillLevel(skillLevel.levelId, index)} isCurrent={true}/>
         </div>}
-      <span 
-        className={styles.toggleShowAllLevels}
-        onClick={toggleShowAllLevels}>
-          {getShowHideText()}
-      </span>
+        {!isForFeedback && 
+          <span 
+            className={styles.toggleShowAllLevels}
+            onClick={toggleShowAllLevels}>
+              {getShowHideText()}
+          </span>
+        } 
     </div>
   )
 };
