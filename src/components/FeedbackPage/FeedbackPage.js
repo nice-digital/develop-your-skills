@@ -12,7 +12,7 @@ export default function FeedbackPage({skills, roles}) {
  
   let roleIsSelected = () => roleSelected > -1
 
-  let showFeedbackTemplate = () => {
+  let showFeedbackTemplateWithInlineStyles = () => {
     let role = roles[roleSelected];
     let currentSkillLevels = roles[roleSelected].skillLevels;
 
@@ -40,6 +40,7 @@ export default function FeedbackPage({skills, roles}) {
                 </li>
               ))}
             </ul>
+            <p>To see all the levels for these skills, view the full <Link to="/framework">skill framework</Link></p>
             <h2>Skill levels for this role</h2>
             {currentSkillLevels.map((skillLevel, index) => (
               <div>
@@ -84,7 +85,7 @@ export default function FeedbackPage({skills, roles}) {
 
   return (
     <div className={styles.app}>
-      <h1>Generate your 360 feedback template</h1>
+      <h1>Ask for 360 feedback</h1>
       <p className="page-header__lead">This skill framework is based on the UK Government <a href="https://www.gov.uk/government/collections/digital-data-and-technology-profession-capability-framework">Digital, Data and Technology Professional Capability Framework</a>.  We use this to help <Link to="/">develop our skills</Link></p>
       <Banner/>
       <section>
@@ -99,7 +100,7 @@ export default function FeedbackPage({skills, roles}) {
               </option>
             ))}
           </select>
-          {roleIsSelected() && showFeedbackTemplate()}
+          {roleIsSelected() && showFeedbackTemplateWithInlineStyles()}
         </div>
      </section>  
     </div>
