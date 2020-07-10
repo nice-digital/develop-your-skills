@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/develop-your-skills/static/css/main.80eb1399.chunk.css",
+    "main.css": "/develop-your-skills/static/css/main.6ea6369f.chunk.css",
     "main.js": "/develop-your-skills/static/js/main.8e56cfc4.chunk.js",
     "main.js.map": "/develop-your-skills/static/js/main.8e56cfc4.chunk.js.map",
     "runtime-main.js": "/develop-your-skills/static/js/runtime-main.b99e6886.js",
@@ -8,15 +8,15 @@
     "static/js/2.8248e5d8.chunk.js": "/develop-your-skills/static/js/2.8248e5d8.chunk.js",
     "static/js/2.8248e5d8.chunk.js.map": "/develop-your-skills/static/js/2.8248e5d8.chunk.js.map",
     "index.html": "/develop-your-skills/index.html",
-    "precache-manifest.8836bf5aa525e485ebad5b9b43f7aad2.js": "/develop-your-skills/precache-manifest.8836bf5aa525e485ebad5b9b43f7aad2.js",
+    "precache-manifest.19a59e8c40ea4c3eee062fa1caee9577.js": "/develop-your-skills/precache-manifest.19a59e8c40ea4c3eee062fa1caee9577.js",
     "service-worker.js": "/develop-your-skills/service-worker.js",
-    "static/css/main.80eb1399.chunk.css.map": "/develop-your-skills/static/css/main.80eb1399.chunk.css.map",
+    "static/css/main.6ea6369f.chunk.css.map": "/develop-your-skills/static/css/main.6ea6369f.chunk.css.map",
     "static/js/2.8248e5d8.chunk.js.LICENSE.txt": "/develop-your-skills/static/js/2.8248e5d8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b99e6886.js",
     "static/js/2.8248e5d8.chunk.js",
-    "static/css/main.80eb1399.chunk.css",
+    "static/css/main.6ea6369f.chunk.css",
     "static/js/main.8e56cfc4.chunk.js"
   ]
 }

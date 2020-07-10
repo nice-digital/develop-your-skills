@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3d870fe609e5c776ff11e4dd6279ff8b",
+    "revision": "424b584aaf422c455f2e46ccba9f4ddc",
     "url": "/develop-your-skills/index.html"
   },
   {
-    "revision": "30cef919fbd974dc3a45",
-    "url": "/develop-your-skills/static/css/main.80eb1399.chunk.css"
+    "revision": "ee4721daf83612b1320f",
+    "url": "/develop-your-skills/static/css/main.6ea6369f.chunk.css"
   },
   {
     "revision": "7dca2984c90449d3dbfb",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/develop-your-skills/static/js/2.8248e5d8.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "30cef919fbd974dc3a45",
+    "revision": "ee4721daf83612b1320f",
     "url": "/develop-your-skills/static/js/main.8e56cfc4.chunk.js"
   },
   {
