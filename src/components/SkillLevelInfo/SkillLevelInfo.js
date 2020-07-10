@@ -66,12 +66,14 @@ const SkillLevelInfo = ({skills, skillLevel, index, isForFeedback}) => {
         <div>
           <Level level={getCurrentSkillLevel(skillLevel.levelId, index)} isCurrent={true}/>
         </div>}
-        {!isForFeedback && 
-          <span 
-            className={styles.toggleShowAllLevels}
-            onClick={toggleShowAllLevels}>
-              {getShowHideText()}
-          </span>
+        {!isForFeedback &&
+          <p><span>Skill levels build on previous levels. </span>
+            <span 
+              className={styles.toggleShowAllLevels}
+              onClick={toggleShowAllLevels}>
+                {getShowHideText()}
+            </span>
+          </p>
         } 
     </div>
   )
