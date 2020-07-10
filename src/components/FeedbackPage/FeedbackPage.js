@@ -19,14 +19,19 @@ export default function FeedbackPage({skills, roles}) {
     return (
       // Inline styling in this block is intentional as its intended to be copied into an email body and needs to go with the HTML
       <div>
-        <h2>Feedback email template</h2>
-        <p>Select all of the text from the box below, copy and paste into an email.  Send to your manager and any colleagues that you'd appreciate feedback from.</p>
+        <h2>Your feedback email template</h2>
+        <h3>Instructions</h3>
+        <ol>
+          <li>Select all of the text from the box below, copy and paste into an email</li>
+          <li>Replace MEETING_DATE with your real review date</li>
+          <li>Send to your manager and any colleagues that you'd appreciate feedback from.</li>
+        </ol>
         <div contentEditable={true} className={styles.contentBox}>
           <div>
             <p>Hi</p>
-            <p>I'd really appreciate your feedback on my skills for my development review.  Your feedback will help me to develop my skills.  Please do this ASAP, it should only take max 30 minutes of your time.</p>
-            <p>Please provide feedback on your colleagues level of skill by commenting below.   Provide specific but concise examples of how they have demonstrated this skill to benefit the team/org.  It's ok to only feedback on some skill areas and leave some blank.  There is a general feedback section at the bottom</p>
-            <h2>Current role: {role.name}</h2>
+            <p>I'd really appreciate your feedback on my skills for my development review.  Your feedback will help me to develop my skills.  Please reply with feedback by <strong>MEETING_DATE</strong>, it should only take max 30 minutes of your time.</p>
+            <p>My current role is:</p>
+            <h2>{role.name}</h2>
             <p>{role.summary.blurb}</p>
             <ul>
               {role.summary.bullets.map((bullet, i) => (
@@ -35,23 +40,27 @@ export default function FeedbackPage({skills, roles}) {
                 </li>
               ))}
             </ul>
-            <h2>Expected skill levels</h2>
+            <h2>Skill levels for this role</h2>
             {currentSkillLevels.map((skillLevel, index) => (
               <div>
                 <SkillLevelInfo skills={skills} skillLevel={skillLevel} index={index} isForFeedback={true}/>
-
-                <hr style={{color: "red"}}></hr>
                 <div style={{color: "red"}}>
                   <h3>Your feedback</h3>
-                  <p>How am i doing with this skill? Do i need to work on this or am i doing a great job? Remember to give specific examples. </p>
                 </div>
                 <div>
-                  <p>(Write feedback here)</p>
-                  <br></br>
-                  <br></br>
-                  <br></br>
+                  <p>How am i doing with this above skill competency? (Leave one and delete others): </p>
+                  
+                  <p>Great</p>
+                  <p>Good</p>
+                  <p>OK (for now)</p>
+                  <p>Needs improvement</p>
+                  <br/>
+                  <p>(If 'great' or 'needs improvement' please leave specific feedback in less than 100 words here)</p>
+                  <br/>
+                  <br/>
+                  <br/>
                 </div>
-                <hr style={{color: "red"}}></hr>
+                <hr/>
               </div>
             ))}
           </div>
@@ -75,7 +84,7 @@ export default function FeedbackPage({skills, roles}) {
 
   return (
     <div className={styles.app}>
-      <h1>Skill feedback template</h1>
+      <h1>Generate your 360 feedback template</h1>
       <p className="page-header__lead">This skill framework is based on the UK Government <a href="https://www.gov.uk/government/collections/digital-data-and-technology-profession-capability-framework">Digital, Data and Technology Professional Capability Framework</a>.  We use this to help <Link to="/">develop our skills</Link></p>
       <Banner/>
       <section>
