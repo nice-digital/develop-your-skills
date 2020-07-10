@@ -40,11 +40,12 @@ export default function FeedbackPage({skills, roles}) {
                 </li>
               ))}
             </ul>
-            <p>To see all the levels for these skills, view the full <Link to="/framework">skill framework</Link></p>
+            
             <h2>Skill levels for this role</h2>
             {currentSkillLevels.map((skillLevel, index) => (
               <div>
                 <SkillLevelInfo skills={skills} skillLevel={skillLevel} index={index} isForFeedback={true}/>
+                <p>Skill levels build on previous levels. See the <Link to="/framework"> other levels of this skill</Link></p>
                 <div style={{color: "red"}}>
                   <h3>Your feedback</h3>
                 </div>
