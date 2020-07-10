@@ -68,8 +68,8 @@ export default function FeedbackPage({skills, roles}) {
 
           <div>
             <div style={{color: "red"}}>
-              <h3 style={{color: "red"}}>Any other comments</h3>
-              <p>Any other general feedback that you'd like to give me? </p>
+              <h3 style={{color: "red"}}>Your general comments</h3>
+              <p>Any other general feedback that you'd like to give me? Any specific successes or improvements worth pointing out? </p>
             </div>
             <div>
               <p>(Write feedback here)</p>
