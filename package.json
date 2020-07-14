@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "npm run get-skills-data && react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run get-skills-data && react-scripts build",
     "test": "react-scripts test --watchAll=true -i",
     "cov": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
