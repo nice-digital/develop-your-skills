@@ -29,7 +29,7 @@ export default function FeedbackPage({skills, roles}) {
         <div contentEditable={true} className={styles.contentBox}>
           <div>
             <p>Hi</p>
-            <p>I'd really appreciate your feedback on my skills for my development review.  Your feedback will help me to develop my skills.  Please reply with feedback by <strong>MEETING_DATE</strong>, it should only take max 30 minutes of your time.</p>
+            <p>I'd really appreciate your feedback on my current role competencies for my development review. Read <a href="https://jvns.ca/blog/2018/02/10/positive-constructive-feedback/">how to write good feedback</a>. Comment on any of the skill competency areas below that you can.  There is also a general feedback section at the end, should you wish to provide any further feedback.  Please reply with feedback by <strong>MEETING_DATE</strong>.</p>
             <p>My current role is:</p>
             <h2>{role.name}</h2>
             <p>{role.summary.blurb}</p>
@@ -57,7 +57,7 @@ export default function FeedbackPage({skills, roles}) {
                   <p>OK (for now)</p>
                   <p>Needs improvement</p>
                   <br/>
-                  <p>(If 'great' or 'needs improvement' please leave specific feedback in less than 100 words here)</p>
+                  <p>(write specific comments here)</p>
                   <br/>
                   <br/>
                   <br/>
