@@ -29,7 +29,15 @@ export default function FeedbackPage({skills, roles}) {
         <div contentEditable={true} className={styles.contentBox}>
           <div>
             <p>Hi</p>
-            <p>I'd really appreciate your feedback on my current role competencies for my development review. Read <a href="https://jvns.ca/blog/2018/02/10/positive-constructive-feedback/">how to write good feedback</a>. Comment on any of the skill competency areas below that you can.  There is also a general feedback section at the end, should you wish to provide any further feedback.  Please reply with feedback by <strong>MEETING_DATE</strong>.</p>
+            <p>I'd really appreciate your feedback for my development review by <strong>MEETING_DATE</strong>.  Comment on any of the skill competency areas below that you can.  There is also a general feedback section at the end, should you wish to provide any further feedback.  Your honest, constructive feedback will be helpful in planning my skill development.</p>
+            <p>Some questions to help guide you through the skill feedback sections below:
+              <ul>
+                <li>what are my strengths?</li>
+                <li>what impacts have i had?</li>
+                <li>what do i need to improve?</li>
+              </ul>
+            </p>
+            <p>If you are interested, read more about <a href="https://jvns.ca/blog/2018/02/10/positive-constructive-feedback/">how to write constructive feedback</a>. </p>
             <p>My current role is:</p>
             <h2>{role.name}</h2>
             <p>{role.summary.blurb}</p>
@@ -57,7 +65,7 @@ export default function FeedbackPage({skills, roles}) {
                   <p>OK (for now)</p>
                   <p>Needs improvement</p>
                   <br/>
-                  <p>(write specific comments here)</p>
+                  <p>(write specific comments here - max 100 words)</p>
                   <br/>
                   <br/>
                   <br/>
@@ -79,6 +87,7 @@ export default function FeedbackPage({skills, roles}) {
               <br></br>
             </div>
           </div>
+          <p>Thanks in advance!</p>
         </div>
       </div>
     );
