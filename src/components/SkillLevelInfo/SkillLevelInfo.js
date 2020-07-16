@@ -8,7 +8,7 @@ const SkillLevelInfo = ({skills, skillLevel, index, isForFeedback}) => {
   const toggleShowAllLevels = () => setShowAllLevels(!showAllLevels)
 
   
-  let getSkillLevelName = (index) => skills[index].name;
+  let getSkillLevelName = (index) => (isForFeedback ? 'Skill: ' : '') + skills[index].name;
   let getSkillDesc = (index) => skills[index].desc;
   let getCurrentSkillLevel = (skillLevelIdx, index) => {
     let level = skills[index].levels[skillLevelIdx];
