@@ -24,7 +24,7 @@ export default function FeedbackPage({skills, roles}) {
         <ol>
           <li>Select all of the text from the box below, copy and paste into an email</li>
           <li>Replace MEETING_DATE with your real review date</li>
-          <li>Send to your manager and any colleagues that you'd appreciate feedback from.</li>
+          <li>Send to your manager and any colleagues that you've worked with that you'd appreciate feedback from. It's good to ask people from other disciplines too.</li>
         </ol>
         <div contentEditable={true} className={styles.contentBox}>
           <div>
