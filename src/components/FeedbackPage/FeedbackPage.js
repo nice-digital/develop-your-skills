@@ -29,7 +29,7 @@ export default function FeedbackPage({skills, roles}) {
         <div contentEditable={true} className={styles.contentBox}>
           <div>
             <p>Hi</p>
-            <p>I'd really appreciate your feedback for my development review by <strong>MEETING_DATE</strong>.  Go through each of the skill competency areas below, rate and comment on anything that you wish. There is also a general feedback section at the end, should you wish to provide any further feedback.  Your honest, constructive feedback will be helpful in planning my skill development.  Please remember to reply to me only, NOT REPLY ALL 😊</p>
+            <p>I'd really appreciate your feedback for my development review by <strong>MEETING_DATE</strong>.  Go through each of the skill competency areas below, rate and comment on anything that you wish.  Delete any sections that you can't feedback on. There is also a general feedback section at the end, should you wish to provide any further feedback.  Your constructive feedback will be helpful in planning my skill development.  Please remember to reply to me only, NOT REPLY ALL 😊. Direct peer feedback is encouraged but if you feel you can't provide feedback directly to me, then please send it to my line manager instead.  They will feed it back to me confidentially.</p>
             <p>Some questions to help guide you through the skill feedback sections below:
               <ul>
                 <li>what are my strengths?</li>
