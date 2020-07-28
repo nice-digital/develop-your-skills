@@ -39,6 +39,11 @@ If you have just pulled down this code repository and have yet to run the app, y
 
 In the project directory, you can run:
 
+### Fetching skills data
+
+`npm run get-skills-data`
+This is automatically fetched on pre-start and pre-deploy
+
 ### Running the app
 
 `npm start`
@@ -53,13 +58,12 @@ You will also see any lint errors in the console.
 
 `npm test`
 
-Launches the test runner in the interactive watch mode.  There are currently no tests for this! (To improve)
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 
 ### Deployment
 
 `npm run deploy`
 
-This app is configured to deploy to [https://nice-digital.github.com/develop-your-skills](a github hosted page)
+This app is configured to deploy to github pages.
 
