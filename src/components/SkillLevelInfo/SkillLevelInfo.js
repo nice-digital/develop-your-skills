@@ -9,6 +9,9 @@ const SkillLevelInfo = ({skills, skillLevel, index, isForFeedback}) => {
 
   
   let getSkillLevelName = (index) => (isForFeedback ? 'Skill: ' : '') + skills[index].name;
+  let getLearningPathUrl = () => {
+    return skills[index]['learning-path-url'];
+  }
   let getSkillDesc = (index) => skills[index].desc;
   let getCurrentSkillLevel = (skillLevelIdx, index) => {
     let level = skills[index].levels[skillLevelIdx];
@@ -67,11 +70,18 @@ const SkillLevelInfo = ({skills, skillLevel, index, isForFeedback}) => {
           <Level level={getCurrentSkillLevel(skillLevel.levelId, index)} isCurrent={true}/>
         </div>}
         {!isForFeedback &&
-          <p><span>Skill levels build on previous levels. </span>
+          <p>
+            <span>Skill levels build on previous levels.&nbsp;&nbsp;</span> 
             <span 
-              className={styles.toggleShowAllLevels}
+              className={styles.link}
               onClick={toggleShowAllLevels}>
-                {getShowHideText()}
+                {getShowHideText()}.
+            </span>
+            <span>
+              &nbsp;&nbsp;
+              <a 
+                className={styles.link}
+                href={getLearningPathUrl()}>See learning paths for this skill.</a>
             </span>
           </p>
         } 

@@ -28,6 +28,7 @@ export const DeficitCalculator = (skills, roles, levels, currentSkillLevels, tar
 
       return ({
         name: skills[skillIndex].name,
+        'learning-path-url': skills[skillIndex]['learning-path-url'],
         levels: {
           current: {
             name: levels[currentSkillLevel].name

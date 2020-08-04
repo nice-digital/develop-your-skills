@@ -83,3 +83,15 @@
     margin: 1em 1em 1em 1em;
 }
 
+
+.link {
+    cursor:pointer;
+    color:blue;
+    text-decoration:underline;
+}
+  
+.link:hover {
+    text-decoration:none;
+}
+  
+

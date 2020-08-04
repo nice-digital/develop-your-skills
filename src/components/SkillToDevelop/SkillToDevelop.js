@@ -43,6 +43,9 @@ export const SkillToDevelop = ({skill}) => {
         {skill.levels.deficit.map(level => (
           <Level level={level}/>
         ))}
+        <a
+          className={styles.link}
+          href={skill['learning-path-url']}>See learning paths for this skill.</a>
       </div>
     )
   }
