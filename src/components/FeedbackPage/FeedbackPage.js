@@ -33,8 +33,8 @@ export default function FeedbackPage({skills, roles}) {
             <p>Some questions to help guide you through the skill feedback sections below:
               <ul>
                 <li>what are my strengths?</li>
-                <li>what impacts have i had?</li>
-                <li>what do i need to improve?</li>
+                <li>what impacts have I had?</li>
+                <li>what do I need to improve?</li>
               </ul>
             </p>
             <p>If you are interested, read more about <a href="https://jvns.ca/blog/2018/02/10/positive-constructive-feedback/">how to write constructive feedback</a>. </p>
@@ -58,7 +58,7 @@ export default function FeedbackPage({skills, roles}) {
                   <h3>Your feedback</h3>
                 </div>
                 <div>
-                  <p>How am i doing with this above skill competency? (Leave one and delete others): </p>
+                  <p>How am I doing with this above skill competency? (Leave one and delete others): </p>
                   
                   <p>Great</p>
                   <p>Good</p>
