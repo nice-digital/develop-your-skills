@@ -39,7 +39,7 @@ const FrameworkPage = ({skills, roles, levels}) => {
   return (
     <div className={styles.app}>
       <h1>Skill framework</h1>
-      <p className="page-header__lead">This skill framework is based on the UK Government <a href="https://www.gov.uk/government/collections/digital-data-and-technology-profession-capability-framework">Digital, Data and Technology Professional Capability Framework</a>.  Use it to help <Link to="/">develop your skills</Link> or to ask for <Link to="/feedback">ask for 360 feedback</Link>.</p>
+      <p className="page-header__lead">This skill framework is based on the UK Government <a href="https://www.gov.uk/government/collections/digital-data-and-technology-profession-capability-framework">Digital, Data and Technology Professional Capability Framework</a>.  Use it to help <Link to="/">develop your skills</Link>.</p>
       <Banner/>
       <section>
         <div>

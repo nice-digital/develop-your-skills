@@ -79,7 +79,7 @@ const App = ({skills, roles, levels}) => {
     <div className={styles.app}>
       <div className="page-header">
         <h1 className="page-header__heading">Develop your skills</h1>
-        <p className="page-header__lead">Identify skill development areas using our <Link to="/framework">skill framework</Link> or use it to ask for <Link to="/feedback">ask for 360 feedback</Link></p>
+        <p className="page-header__lead">Identify skill development areas using our <Link to="/framework">skill framework</Link></p>
         <Banner/>
       </div>
       <h2>1. Enter your name</h2>
