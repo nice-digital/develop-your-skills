@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Banner from '../Banner';
+import RadarChart from '../Radar/RadarChart';
 import SkillLevelInfo from '../SkillLevelInfo/SkillLevelInfo';
 
 import styles from './FrameworkPage.module.scss'
@@ -36,6 +37,40 @@ const FrameworkPage = ({skills, roles, levels}) => {
     );
   }
 
+  let getChartLabels = () => {
+    return roles[roleSelected].skillLevels.map((s,index) => {
+      return skills[index].name;
+    });
+  }
+
+  let getChartCurrentSkillLevelData = () => {
+    const levelAdjustment = 1;
+    return roles[roleSelected].skillLevels.map((s,index) => {
+      return s.levelId+levelAdjustment;
+    });
+  }
+  let getSkillLevelDefinitions = () => {
+    return levels.map((l) => {
+      return l.name;
+    })
+  }
+
+  let showRadar = () => {
+    let labels = getChartLabels();
+    let currentLevelData = getChartCurrentSkillLevelData();
+    let skillLevelDefinitions = ["",...getSkillLevelDefinitions()];
+    console.log("labels");
+    console.log(labels);
+    console.log("currentLevelData");
+    console.log(currentLevelData);
+    console.log("skillLevelDefinitions");
+    console.log(skillLevelDefinitions);
+    return <RadarChart labels={labels}
+                    currentLevelData={currentLevelData}
+                    targetLevelData={[]}
+                    skillLevelDefinitions={skillLevelDefinitions}/>  
+  }
+
   return (
     <div className={styles.app}>
       <h1>Skill framework</h1>
@@ -53,7 +88,7 @@ const FrameworkPage = ({skills, roles, levels}) => {
               </option>
             ))}
           </select>
-          {roleIsSelected() && showSkills()}
+          {roleIsSelected() && showSkills() && showRadar()}
         </div>
      </section>  
     </div>

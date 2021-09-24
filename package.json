@@ -12,12 +12,14 @@
     "node-fetch": "^2.6.0",
     "node-sass": "^4.14.1",
     "query-string": "^6.13.1",
+    "chart.js": "^2.8.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-markdown": "^4.3.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "yamljs": "^0.3.0"
+    "yamljs": "^0.3.0",
+    "react-chartjs-2": "^2.7.6"
   },
   "scripts": {
     "start": "npm run get-skills-data && react-scripts start",
