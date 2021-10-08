@@ -23,7 +23,8 @@
       {"skillId": 7, "levelId": 0 },
       {"skillId": 8, "levelId": 0 },
       {"skillId": 9, "levelId": 0 },
-      {"skillId": 10, "levelId": 0 }
+      {"skillId": 10, "levelId": 0 },
+      {"skillId": 11, "levelId": 0 }
     ]
   },
   { 
@@ -48,7 +49,8 @@
       {"skillId": 7, "levelId": 0 },
       {"skillId": 8, "levelId": 0 },
       {"skillId": 9, "levelId": 0 },
-      {"skillId": 10, "levelId": 0 }
+      {"skillId": 10, "levelId": 0 },
+      {"skillId": 11, "levelId": 0 }
     ]
   },
   { 
@@ -74,7 +76,8 @@
       {"skillId": 7, "levelId": 1 },
       {"skillId": 8, "levelId": 1 },
       {"skillId": 9, "levelId": 1 },
-      {"skillId": 10, "levelId": 1 }
+      {"skillId": 10, "levelId": 1 },
+      {"skillId": 11, "levelId": 0 }
     ]
   },
   { 
@@ -101,20 +104,22 @@
       {"skillId": 7, "levelId": 2 },
       {"skillId": 8, "levelId": 1 },
       {"skillId": 9, "levelId": 1 },
-      {"skillId": 10, "levelId": 2 }
+      {"skillId": 10, "levelId": 2 },
+      {"skillId": 11, "levelId": 1 }
     ]
   },
   { 
     "name": "Lead developer (management)",
     "summary" : {
-      "blurb": "A lead developer leads development on one or a small number of related project teams. At this level, you will:",
+      "blurb": "A lead developer (management) is responsible for the welfare and effectiveness of a team of software developers.  At this level, you will:",
       "bullets": [
-        "guide the ways in which the team works",
-        "be proficient in a wide range of technical systems",
+        "manage and motivate developers, enabling them to work effectively",
+        "advocate iterative development methods and facilitate process improvement",
         "be involved in identifying appropriate technology and approaches, deciding when software should be written",
-        "contribute to the developer community",
-        "provide technical leadership, coach and mentor your team",
-        "promote knowledge sharing and adoption of good practice"
+        "understand broad range of technologies and assist the team with coding solutions",
+        "coach and mentor developers, enabling career development",
+        "contribute to technical strategy, plan and prioritise technical improvement work",
+        "contribute to the developer community and encourage other developers to do so"
       ] 
     },
     "skillLevels": [
@@ -128,7 +133,8 @@
       {"skillId": 7, "levelId": 2 },
       {"skillId": 8, "levelId": 2 },
       {"skillId": 9, "levelId": 2 },
-      {"skillId": 10, "levelId": 3 }
+      {"skillId": 10, "levelId": 3 },
+      {"skillId": 11, "levelId": 2 }
     ]
   },
   { 
@@ -155,7 +161,8 @@
       {"skillId": 7, "levelId": 2 },
       {"skillId": 8, "levelId": 1 },
       {"skillId": 9, "levelId": 2 },
-      {"skillId": 10, "levelId": 2 }
+      {"skillId": 10, "levelId": 2 },
+      {"skillId": 11, "levelId": 2 }
     ]
   },
   { 
@@ -180,7 +187,8 @@
       {"skillId": 7, "levelId": 2 },
       {"skillId": 8, "levelId": 2 },
       {"skillId": 9, "levelId": 2 },
-      {"skillId": 10, "levelId": 2 }
+      {"skillId": 10, "levelId": 2 },
+      {"skillId": 11, "levelId": 3 }
     ]
   },
   { 
@@ -205,7 +213,8 @@
       {"skillId": 7, "levelId": 2 },
       {"skillId": 8, "levelId": 2 },
       {"skillId": 9, "levelId": 2 },
-      {"skillId": 10, "levelId": 2 }
+      {"skillId": 10, "levelId": 2 },
+      {"skillId": 11, "levelId": 3 }
     ]
   }
 ]

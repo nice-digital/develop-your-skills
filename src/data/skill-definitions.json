@@ -1,7 +1,8 @@
 [
+  
   {
     "name": "Development process optimisation",
-    "id": 0,
+    "id": 1,
     "desc": "You contribute to improving development process efficiency and the common ways in which processes are optimised.",
     "learning-path-url": "https://nice-digital.github.io/engineering/learning-paths/development-process-optimisation.html",
     "levels": [
@@ -23,9 +24,9 @@
       {
         "name": "Practitioner",
         "examples": [
-          "You use data to measure development process efficiency and improve outcomes (such as cycle time)",
-          "You proactively improve the build, test and deploy pipelines to deliver value quickly and safely to production",
-          "You take ownership of seeing work through to live, not just development"
+          "You measure development process efficiency and identify areas for improvement",
+          "You coach your team through development process improvements",
+          "You encourage and enable collaboration"
         ]
       },
       {
@@ -38,7 +39,7 @@
   },
   {
     "name": "Information security",
-    "id": 1,
+    "id": 2,
     "desc": "You maintain the security, confidentiality and integrity of information systems through compliance with relevant legislation and regulations. You design, implement and operate controls and management strategies to allow this.",
     "learning-path-url": "https://nice-digital.github.io/engineering/learning-paths/information-security.html",
     "levels": [
@@ -75,7 +76,7 @@
   },
   {
     "name": "Modern standards approach",
-    "id": 2,
+    "id": 3,
     "desc": "You use a modern standards approach throughout automation and testing.",
     "learning-path-url": "https://nice-digital.github.io/engineering/learning-paths/modern-standards-approach.html",
     "levels": [
@@ -95,25 +96,23 @@
       {
         "name": "Practitioner",
         "examples": [
-          "You can competently use a test-driven approach, using the testing pyramid appropriately",
-          "You proactively collaborate with testers to write and review test cases",
-          "You can competently configure the building, packaging and deploying of code changes",
-          "You can assist web operations engineers with infrastructure automation scripts"
+          "You can competently use a test-driven approach to writing software",
+          "You can write tests at different levels of the testing pyramid appropriately",
+          "You can competently configure automation of build, test and deployments"
         ]
       },
       {
         "name": "Expert",
         "examples": [
-          "You demonstrate strong understanding and application test-driven development",
-          "You ensure the fast building, testing and deploying of code",
-          "You are familiar with different approaches to building, testing and deploying code"
+          "You have a strong understanding of test-driven development and can coach others",
+          "You ensure automated testing and deployment is fit for purpose, enabling fast and safe changes to production"
         ]
       }
     ]
   },
   {
     "name": "Programming and build",
-    "id": 3,
+    "id": 4,
     "desc": "You can use agreed security standards and specifications to design, create, test and document new or amended software.",
     "learning-path-url": "https://nice-digital.github.io/engineering/learning-paths/programming-and-build.html",
     "levels": [
@@ -140,7 +139,7 @@
         "name": "Practitioner",
         "examples": [
           "You can lead the delivery of larger features or whole applications, in line with the [GDS Technology Code of Practice](https://www.gov.uk/government/publications/technology-code-of-practice/technology-code-of-practice)",
-          "You take responsibility for maintaining high quality and low complexity source code",
+          "You take responsibility for maintaining high quality and low complexity code",
           "You can use several [programming languages/frameworks/technologies](https://nice-digital.github.io/technology-radar/) competently",
           "You can competently fix and optimise application performance",
           "You find ways to improve system robustness, resilience and security"
@@ -160,7 +159,7 @@
   },
   {
     "name": "Prototyping",
-    "id": 4,
+    "id": 5,
     "desc": "You can apply technical knowledge and experience to create or design workable prototypes, both programs and physical outputs.",
     "learning-path-url": "https://nice-digital.github.io/engineering/learning-paths/prototyping.html",
     "levels": [
@@ -195,7 +194,7 @@
   },
   {
     "name": "Systems design",
-    "id": 5,
+    "id": 6,
     "desc": "You can design software with consideration for maintainability, extensibility, performance and security. You can improve the design of a system as it evolves.",
     "learning-path-url": "https://nice-digital.github.io/engineering/learning-paths/systems-design.html",
     "levels": [
@@ -213,18 +212,15 @@
           "You understand object-oriented design fundamentals and apply these to your work (encapsulation, inheritance, abstraction, polymorphism)",
           "You are learning software design principles and patterns, and are starting to incorporate them",
           "You can apply modular system design to small and medium scale problems",
-          "You can spot software design problems and apply simple refactorings",
-          "You understand anti-patterns and the reasons why some approaches are preferred over others (e.g. composition vs inheritance)."
+          "You can spot software design problems and apply appropriate fixes"
         ]
       },
       {
         "name": "Practitioner",
         "examples": [
-          "You build well-architected object-oriented or modular systems",
-          "You are aware of a range of design patterns and principles and can apply them appropriately",
-          "You can spot more nuanced software design problems and know a wider range of refactoring techniques",
-          "You take responsibility for minimising system complexity",
-          "You advise on overall application design"
+          "You can competently design and build modular, extensible software systems",
+          "You take steps to proactively minimise system complexity",
+          "You can spot less obvious software design problems and advise on appropriate fixes"
         ]
       },
       {
@@ -237,7 +233,7 @@
   },
   {
     "name": "Systems integration",
-    "id": 6,
+    "id": 7,
     "desc": "You can plan, build and test the integration of software systems.",
     "learning-path-url": "https://nice-digital.github.io/engineering/learning-paths/systems-integration.html",
     "levels": [
@@ -367,7 +363,7 @@
       {
         "name": "Practitioner",
         "examples": [
-          "You run coding sessions, or more in-depth technical community sessions",
+          "You run more in-depth technical community sessions",
           "You promote your team's technical work and methods",
           "You promote participation and contribution to community events, especially to your team members.",
           "You can deliver training on your areas of expertise"
@@ -414,6 +410,41 @@
           "You create a positive, engaging, safe and supportive environment for team members to grow and do their best work.",
           "You spend a signifant proportion of your time supporting and mentoring others on your team",
           "You enable and support longer-term career development planning for developers"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Strategic thinking",
+    "id": 11,
+    "desc": "You understand how team's technical work relates to the wider business context and supports business goals",
+    "learning-path-url": "https://nice-digital.github.io/engineering/learning-paths/strategic-thinking.html",
+    "levels": [
+      {
+        "name": "Awareness",
+        "examples": [
+          "You are aware of the strategic context of your teams work and why it is important. You support strategic planning."
+        ]
+      },
+      {
+        "name": "Working",
+        "examples": [
+          "You are able to work within a strategic context and communicate how activities meet strategic goals.",
+          "You understand our guiding technology principles and can explain their relevance",
+          "You can advise on team-level strategy, highlighting dependancies and high level roadmap"
+        ]
+      },
+      {
+        "name": "Practitioner",
+        "examples": [
+          "You can define team-level technical strategy, in line with guiding technology principles",
+          "You can evaluate current strategies to make sure business requirements are being met"
+        ]
+      },
+      {
+        "name": "Expert",
+        "examples": [
+          "You can advise on technical strategy across several workstreams or teams"
         ]
       }
     ]
