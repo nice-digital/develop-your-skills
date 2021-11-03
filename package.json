@@ -17,17 +17,15 @@
     "react-dom": "^16.13.1",
     "react-markdown": "^4.3.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
-    "yamljs": "^0.3.0",
+    "react-scripts": "3.4.1"
     "react-chartjs-2": "^2.7.6"
   },
   "scripts": {
-    "start": "npm run get-skills-data && react-scripts start",
-    "build": "npm run get-skills-data && react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test --watchAll=true -i",
     "cov": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
-    "get-skills-data": "node src/scripts/getData.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },

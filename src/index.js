@@ -8,11 +8,10 @@ import {
 import App from './App';
 import FrameworkPage from './components/FrameworkPage/FrameworkPage';
 import * as serviceWorker from './serviceWorker';
-import skills from './data/skills.json';
+import skills from './data/skill-definitions.json';
 import roles from './data/roles.json';
-import levels from './data/levels.json';
+import levels from './data/level-definitions.json';
 import './index.scss';
-
 
 ReactDOM.render(
   <React.StrictMode>
